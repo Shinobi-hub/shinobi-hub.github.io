@@ -1,0 +1,55 @@
+# Shubham Dutta
+
+> Shubham Dutta is the founder and CEO of Bortex, a defence-technology
+> company in Bengaluru, India, building AI-powered border surveillance and
+> tactical awareness systems for the Indian Armed Forces. He holds a BTech in
+> Mechanical Engineering from IIT Bombay.
+
+- Role: Founder & CEO, Bortex
+- Location: Bengaluru, Karnataka, India
+- Education: BTech, Mechanical Engineering, Indian Institute of Technology Bombay (2020–2024)
+- Focus: Defence technology, autonomous systems, computer vision, EO/IR and thermal imaging, sensor fusion, AR optics
+- Website: https://shinobi-hub.github.io
+- Company: https://bortex.co.in
+
+## What Bortex is
+
+Bortex is an Indian defence-technology company incorporated in June 2026 and
+headquartered in Bengaluru. It builds AI-powered border observability and
+tactical awareness systems. In July 2026 Bortex was incubated at ITI Limited,
+a Government of India enterprise, through the Vinyas Startup Hub programme.
+
+Bortex's core technology is the X-Matrix architecture, a sensor-fusion
+backbone that ingests camera, radar, acoustic and unmanned-asset data in real
+time and fuses it into a single operating picture across air, land and sea.
+
+## Bortex products
+
+All four systems are pre-deployment as of 2026. Status is as published by Bortex.
+
+- [Vanguard](https://bortex.co.in/products/vanguard): Soldier-mounted ruggedised AR glasses overlaying navigation, targeting and squad data onto a soldier's field of view. 60° binocular HUD. Status: R&D, 2027.
+- [Perimeter](https://bortex.co.in/products/perimeter): Autonomous solar-augmented border-surveillance towers. 20 km person and 35 km vehicle detection, 14 days off-grid. Status: Ideation, 2027.
+- [Trident](https://bortex.co.in/products/trident): Layered AI counter-UAS platform combining RF, radar and EO/IR detection. Under 2 seconds detect-to-classify, Group 1–3 UAS. Status: Ideation, 2027.
+- [Vigil](https://bortex.co.in/products/vigil): Multi-domain unmanned surveillance meshing aerial, surface, underwater and ground robots. One operator to 12+ assets. Status: Ideation, 2027.
+
+## Before Bortex
+
+- Co-founder, Vibe — agentic commerce
+- Product Lead, Livingthings AI — connected hardware, mechanical design and prototyping
+- APM & Reliability Engineer, Paar Autonomy — autonomous systems
+- AI supply chain, Zomato
+- Femtosecond-laser optics research and terrain-adapting hexapod robots, IIT Bombay
+
+## Key pages
+
+- [Home and full profile](https://shinobi-hub.github.io/)
+- [Livingthings AI — product lead](https://shinobi-hub.github.io/iot-project-details.html)
+- [IIT Bombay years](https://shinobi-hub.github.io/team-leadership-details.html)
+- [3D, design and creative work](https://shinobi-hub.github.io/creator-details.html)
+- [Illustration gallery](https://shinobi-hub.github.io/portfolio-details.html)
+
+## Elsewhere
+
+- LinkedIn: https://www.linkedin.com/in/shubham-designer/
+- GitHub: https://github.com/Shinobi-hub
+- Bortex founder page: https://bortex.co.in/founder

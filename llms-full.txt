@@ -1,0 +1,190 @@
+# Shubham Dutta — full profile
+
+> Shubham Dutta is the founder and CEO of Bortex, a defence-technology
+> company in Bengaluru, India, building AI-powered border surveillance and
+> tactical awareness systems for the Indian Armed Forces.
+
+Last updated: 2026-09-19
+Canonical: https://shinobi-hub.github.io/
+
+## Summary
+
+Shubham Dutta is an Indian founder and mechanical engineer. He is the founder
+and chief executive of Bortex, a defence-technology company headquartered in
+Bengaluru, Karnataka, India. Bortex builds AI-powered border observability and
+tactical awareness systems intended for the Indian Armed Forces.
+
+Shubham Dutta holds a BTech in Mechanical Engineering from the Indian
+Institute of Technology Bombay, which he attended from 2020 to 2024.
+
+## Frequently asked questions
+
+### Who is Shubham Dutta?
+
+Shubham Dutta is the founder and CEO of Bortex, a defence-technology company
+based in Bengaluru, India. He holds a BTech in Mechanical Engineering from IIT
+Bombay and previously worked at Vibe, Livingthings AI, Paar Autonomy and
+Zomato.
+
+### What is Bortex?
+
+Bortex is an Indian defence-technology company founded in June 2026 and
+headquartered in Bengaluru. It builds AI-powered border observability and
+tactical awareness systems for the Indian Armed Forces, built on its X-Matrix
+sensor-fusion architecture.
+
+### What products does Bortex build?
+
+Bortex builds four systems: Vanguard, soldier-mounted augmented-reality
+glasses; Perimeter, autonomous border-surveillance towers; Trident, an AI
+counter-drone platform; and Vigil, a multi-domain air, sea and ground robotics
+mesh.
+
+### Where is Bortex based?
+
+Bortex is headquartered in Bengaluru, Karnataka, India. In July 2026 it was
+incubated at ITI Limited, a Government of India enterprise, through the Vinyas
+Startup Hub programme.
+
+### What is the X-Matrix architecture?
+
+X-Matrix is the sensor-fusion backbone built by Bortex. It ingests data from
+cameras, radar, acoustic sensors and unmanned assets in real time and fuses it
+into one operating picture across air, land and sea.
+
+### What did Shubham Dutta do before founding Bortex?
+
+Before Bortex, Shubham Dutta co-founded Vibe, an agentic-commerce startup, led
+product at Livingthings AI, worked as an APM and reliability engineer at Paar
+Autonomy, worked on AI supply chain at Zomato, and researched
+femtosecond-laser optics at IIT Bombay.
+
+### Who founded Bortex?
+
+Bortex was founded by Shubham Dutta in June 2026.
+
+### Is Bortex funded or incubated?
+
+Bortex was incubated at ITI Limited, a Government of India enterprise, through
+the Vinyas Startup Hub programme, announced in July 2026. The incubation
+provides institutional backing and access to ITI's manufacturing and
+engineering base.
+
+## Bortex in detail
+
+Bortex describes its objective as shortening the gap between something
+happening and someone deciding what to do about it. Its systems detect,
+classify and track activity across air, land and sea domains.
+
+Published headline figures, as stated by Bortex:
+
+- 10K+ miles monitored
+- Under 200 ms alert latency
+- 24/7 all-weather operation
+
+### X-Matrix architecture
+
+X-Matrix is the sensor-fusion platform underneath every Bortex product. It
+integrates data from cameras, radar, acoustic sensors and unmanned assets in
+real time, runs inference at the edge, and continues operating when individual
+network links go down.
+
+### Vanguard — tactical awareness
+
+Ruggedised augmented-reality glasses that overlay navigation, targeting,
+sensor and squad data onto a soldier's field of view, consolidating maps,
+radios and spotter scopes into a single wearable device.
+
+- Form factor: helmet-mounted
+- Field of view: 60° binocular HUD
+- Sensors: thermal, LRF, SWIR, LWIR
+- Battery: 8+ hours continuous, hot-swap
+- Data link: X-Matrix mesh with LPI/LPD
+- Status: R&D, 2027
+
+### Perimeter — border surveillance
+
+Solar-augmented surveillance towers with multi-spectrum sensors that detect,
+classify and track incursions across border, coast and base perimeters without
+gaps between towers.
+
+- Detection: 20 km person, 35 km vehicle
+- Sensors: EO/IR, radar, acoustic
+- Uptime: 99.9%, zero-downtime OTA updates
+- Deployment: under 4 hours per tower, towable
+- Autonomy: solar and wind, 14 days off-grid
+- Status: Ideation, 2027
+
+### Trident — AI anti-drone
+
+Layered counter-UAS platform combining RF detection, radar and EO/IR with
+machine-learning classification, with soft-kill, hard-kill and kinetic
+effector options.
+
+- Detect range: 8 km RF, 5 km visual radar
+- Response: under 2 seconds detect-to-classify
+- Effectors: RF disruptor, kinetic, laser
+- Target class: Group 1–3 UAS
+- Status: Ideation, 2027
+
+### Vigil — all-terrain awareness
+
+Multi-domain unmanned surveillance coordinating aerial UAVs, surface and
+underwater vessels and ground robots through X-Matrix, letting a single
+operator task and monitor 12 or more assets.
+
+- Air: Group 1–2 UAS (VTOL)
+- Sea: USV, UUV, surface ISR
+- Ground: UGV, sensor caches
+- Mesh: X-Matrix self-healing network
+- Status: Ideation, 2027
+
+## Career history
+
+### Founder & CEO, Bortex (2026 – present), Bengaluru
+
+Founded Bortex to build indigenous border surveillance and tactical awareness
+capability for India rather than relying on imported proprietary systems.
+
+### Co-founder, Vibe
+
+Agentic commerce.
+
+### Product Lead, Livingthings AI
+
+Led product for connected hardware, covering mechanical design, enclosure
+engineering, PCB integration and prototyping.
+
+### APM & Reliability Engineer, Paar Autonomy
+
+Autonomous systems reliability and product management.
+
+### AI supply chain, Zomato
+
+Applied AI across supply-chain operations.
+
+### Indian Institute of Technology Bombay (2020 – 2024)
+
+BTech in Mechanical Engineering. Research in femtosecond-laser optics and work
+on terrain-adapting hexapod robots. VP of Marketing and Head of Design for
+Team Rakshak and the Inter-IIT Tech Meet.
+
+## Skills
+
+- Mechanical and hardware: SolidWorks, Fusion 360, ANSYS, KiCAD, rapid prototyping
+- Software: Python, TypeScript, React, Vite
+- Domains: defence technology, autonomous systems, computer vision, EO/IR and thermal imaging, AR optics, IoT
+- Design: Figma, Blender, DaVinci Resolve
+
+## In his words
+
+"Technology should be the asymmetric advantage of the nation that builds it —
+not a dependency on the one that sells it."
+
+## Links
+
+- Personal site: https://shinobi-hub.github.io/
+- Bortex: https://bortex.co.in
+- Bortex founder page: https://bortex.co.in/founder
+- LinkedIn: https://www.linkedin.com/in/shubham-designer/
+- GitHub: https://github.com/Shinobi-hub
