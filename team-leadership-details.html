@@ -1,76 +1,189 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: Team Leadership - Shubham Dutta</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Reusing the same theme variables and base styles for consistency */
-        :root {
-            --bg-color: #0a0a0a;
-            --text-color-primary: #e2e8f0;
-            --text-color-secondary: #94a3b8;
-            --header-bg: rgba(10, 10, 10, 0.5);
-            --section-bg: rgba(17, 24, 39, 0.3);
-        }
-        html:not(.dark) {
-            --bg-color: #f3f4f6;
-            --text-color-primary: #1f2937;
-            --text-color-secondary: #4b5563;
-            --header-bg: rgba(255, 255, 255, 0.5);
-            --section-bg: rgba(255, 255, 255, 0.3);
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color-primary);
-            font-family: 'Inter', sans-serif;
-        }
-        .text-secondary {
-            color: var(--text-color-secondary);
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ==========================================================================
+     PAGE INFORMATION  ·  safe to edit
+     ========================================================================== -->
+<title>IIT Bombay — Research &amp; Team Leadership | Shubham Dutta</title>
+<meta name="description" content="Shubham Dutta studied Mechanical Engineering at IIT Bombay from 2020 to 2024, researching femtosecond-laser optics and terrain-adapting hexapod robots.">
+<link rel="canonical" href="https://shinobi-hub.github.io/team-leadership-details.html">
+<meta name="author" content="Shubham Dutta">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta name="theme-color" content="#0B0E12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F8FA" media="(prefers-color-scheme: light)">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Shubham Dutta">
+<meta property="og:title" content="IIT Bombay — Research &amp; Team Leadership">
+<meta property="og:description" content="Shubham Dutta studied Mechanical Engineering at IIT Bombay from 2020 to 2024, researching femtosecond-laser optics and terrain-adapting hexapod robots.">
+<meta property="og:url" content="https://shinobi-hub.github.io/team-leadership-details.html">
+<meta property="og:image" content="https://shinobi-hub.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shubham Dutta — Founder and CEO of Bortex, Bengaluru, India.">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IIT Bombay — Research &amp; Team Leadership">
+<meta name="twitter:description" content="Shubham Dutta studied Mechanical Engineering at IIT Bombay from 2020 to 2024, researching femtosecond-laser optics and terrain-adapting hexapod robots.">
+<meta name="twitter:image" content="https://shinobi-hub.github.io/og-image.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+
+<!-- Applies the saved theme before paint so the page never flashes. -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<!-- Structured data: tells search engines where this page sits in the site -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://shinobi-hub.github.io/team-leadership-details.html#webpage",
+      "url": "https://shinobi-hub.github.io/team-leadership-details.html",
+      "name": "IIT Bombay \u2014 Research & Team Leadership",
+      "description": "Shubham Dutta studied Mechanical Engineering at IIT Bombay from 2020 to 2024, researching femtosecond-laser optics and terrain-adapting hexapod robots.",
+      "isPartOf": { "@id": "https://shinobi-hub.github.io/#website" },
+      "about": { "@id": "https://shinobi-hub.github.io/#person" },
+      "breadcrumb": { "@id": "https://shinobi-hub.github.io/team-leadership-details.html#breadcrumb" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://shinobi-hub.github.io/team-leadership-details.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Shubham Dutta", "item": "https://shinobi-hub.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "IIT Bombay", "item": "https://shinobi-hub.github.io/team-leadership-details.html" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
-<body class="antialiased">
-    <!-- Header with a link back to the main portfolio -->
-    <header class="backdrop-blur-lg sticky top-0 z-50 border-b border-gray-500/20" style="background-color: var(--header-bg);">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">Shubham Dutta</a>
-            <a href="index.html#projects" class="text-lg hover:text-pink-500 transition-colors duration-300">&larr; Back to Portfolio</a>
-        </nav>
-    </header>
 
-    <!-- Main content area for the project details -->
-    <main class="container mx-auto px-6 py-20">
-        <div class="max-w-4xl mx-auto backdrop-blur-sm p-8 md:p-12 rounded-2xl" style="background-color: var(--section-bg);">
-            <h1 class="text-4xl font-bold mb-2">Team Leadership</h1>
-            <p class="text-xl text-secondary mb-8">Team Rakshak & Inter-IIT</p>
-            
-            <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-violet-600 mb-8 rounded"></div>
+<body>
 
-            <!-- Demo content for the project -->
-            <div class="text-lg leading-relaxed space-y-6 text-secondary">
-                <p>My involvement with technical teams like Team Rakshak and the Inter-IIT Tech Meet provided me with invaluable leadership and project management experience. These roles went beyond pure engineering, requiring a blend of creative, strategic, and interpersonal skills to succeed in a competitive environment.</p>
-                <p>As the VP of Marketing and Head of Design, I was responsible for creating and maintaining the team's brand identity. This included designing logos, managing social media presence, creating all promotional materials, and securing vital sponsorships.</p>
-                <h3 class="text-2xl font-bold text-primary pt-4">Key Responsibilities:</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    <li>Developed and executed the marketing strategy to attract sponsors and build a community following.</li>
-                    <li>Designed team apparel, branding guidelines, and sponsorship proposals that led to successful partnerships.</li>
-                    <li>Managed a small team of designers and content creators, fostering a collaborative and productive environment.</li>
-                    <li>Coordinated with technical leads to ensure our branding aligned with our projects and values.</li>
-                </ul>
-            </div>
-        </div>
-    </main>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Consistent footer -->
-    <footer class="border-t border-gray-500/10 py-6">
-        <div class="container mx-auto px-6 text-secondary text-center">
-            <p>&copy; 2025 Shubham Dutta. All Rights Reserved.</p>
-        </div>
-    </footer>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="/">
+        <img src="/assets/img/avatar.webp" alt="" width="28" height="28" aria-hidden="true">
+        <span>Shubham Dutta</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="/#about">About</a></li>
+        <li><a class="nav-link" href="/#bortex">Bortex</a></li>
+        <li><a class="nav-link" href="/#experience">Experience</a></li>
+        <li><a class="nav-link" href="/#work">Work</a></li>
+        <li><a class="nav-link" href="/#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-utils">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 2.1a.75.75 0 0 1 .16.82A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9c.98 0 1.92-.16 2.8-.45a.75.75 0 0 1 .95.98A10.5 10.5 0 1 1 9.5 2.1Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-13.25a.75.75 0 0 1-.75-.75V1.5a.75.75 0 0 1 1.5 0V3a.75.75 0 0 1-.75.75Zm0 19.5a.75.75 0 0 1-.75-.75V21a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-.75.75ZM22.5 12.75H21a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5Zm-19.5 0H1.5a.75.75 0 0 1 0-1.5H3a.75.75 0 0 1 0 1.5Zm16.02-7.27-1.06 1.06a.75.75 0 1 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06ZM6.1 18.96l-1.06 1.06a.75.75 0 0 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06Zm12.86 1.06-1.06-1.06a.75.75 0 1 1 1.06-1.06l1.06 1.06a.75.75 0 0 1-1.06 1.06ZM6.1 5.04 5.04 3.98A.75.75 0 0 1 6.1 2.92l1.06 1.06A.75.75 0 0 1 6.1 5.04Z"/></svg>
+        </button>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+
+      <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+
+    <div class="page-header">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Shubham Dutta</a></li>
+          <li aria-current="page">IIT Bombay</li>
+        </ol>
+      </nav>
+      <p class="label label--accent">BTech Mechanical Engineering · 2020 — 2024</p>
+      <h1>IIT Bombay</h1>
+    </div>
+
+    <section class="section--tight">
+      <div class="prose measure" data-reveal>
+        <p>
+          I read Mechanical Engineering at the <strong>Indian Institute of
+          Technology Bombay</strong>, graduating in 2024. Two threads ran through
+          those four years: research in the lab, and building teams outside it.
+        </p>
+      </div>
+
+      <div class="prose measure" data-reveal style="margin-top: var(--space-12)">
+        <h2 style="font-size: var(--fs-xl); color: var(--fg)">Research</h2>
+        <p>
+          I worked on <strong>femtosecond-laser optics</strong> — ultrafast pulses
+          on the order of a quadrillionth of a second, used to machine and measure
+          at scales conventional tooling cannot reach. Alongside that I worked on
+          <strong>terrain-adapting hexapod robots</strong>: six-legged platforms
+          that adjust their gait to ground they have not seen before.
+        </p>
+        <p>
+          Both are direct ancestors of what Bortex builds now — precision optics
+          and machines that have to work without being told what they will find.
+        </p>
+      </div>
+
+      <div class="prose measure" data-reveal style="margin-top: var(--space-12)">
+        <h2 style="font-size: var(--fs-xl); color: var(--fg)">Team Rakshak &amp; Inter-IIT</h2>
+        <p>
+          I served as <strong>VP of Marketing and Head of Design</strong>, owning
+          the team's brand identity and the money that kept it running.
+        </p>
+        <ul>
+          <li>Built and ran the marketing strategy that attracted sponsors and grew a following.</li>
+          <li>Designed team apparel, brand guidelines and sponsorship proposals that converted into partnerships.</li>
+          <li>Managed a small team of designers and content creators.</li>
+          <li>Worked with technical leads so the branding matched what the team was actually building.</li>
+        </ul>
+      </div>
+
+      <div class="cta-row" style="margin-top: var(--space-12)" data-reveal>
+        <a class="btn btn-ghost" href="/#experience">&larr; All experience</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span data-year>2026</span> Shubham Dutta</p>
+    <p class="clock" id="clock"></p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>

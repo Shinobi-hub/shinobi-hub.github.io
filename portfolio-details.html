@@ -1,100 +1,194 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Dutta - Portfolio</title>
-    
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter for main text -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <style>
-        /* Base styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.5s ease, color 0.5s ease;
-            background-color: #0a0a0a; /* Dark mode default */
-            color: #e2e8f0; /* Dark mode text */
-        }
+<!-- ==========================================================================
+     PAGE INFORMATION  ·  safe to edit
+     ========================================================================== -->
+<title>Illustration Gallery | Shubham Dutta</title>
+<meta name="description" content="Digital painting, character art and comic work by Shubham Dutta, founder and CEO of Bortex.">
+<link rel="canonical" href="https://shinobi-hub.github.io/portfolio-details.html">
+<meta name="author" content="Shubham Dutta">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 
-        /* Light Mode */
-        html:not(.dark) body {
-            background-color: #f3f4f6;
-            color: #1f2937;
-        }
+<meta name="theme-color" content="#0B0E12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F8FA" media="(prefers-color-scheme: light)">
 
-        .text-gradient {
-            background-image: linear-gradient(to right, #ec4899, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Shubham Dutta">
+<meta property="og:title" content="Illustration Gallery">
+<meta property="og:description" content="Digital painting, character art and comic work by Shubham Dutta, founder and CEO of Bortex.">
+<meta property="og:url" content="https://shinobi-hub.github.io/portfolio-details.html">
+<meta property="og:image" content="https://shinobi-hub.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shubham Dutta — Founder and CEO of Bortex, Bengaluru, India.">
+<meta property="og:locale" content="en_IN">
 
-        /* Portfolio Image Grid */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 1.5rem;
-        }
-        .portfolio-grid img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            object-fit: cover; /* Ensures images cover the area without distortion */
-        }
-        .portfolio-grid img:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-        }
-    </style>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Illustration Gallery">
+<meta name="twitter:description" content="Digital painting, character art and comic work by Shubham Dutta, founder and CEO of Bortex.">
+<meta name="twitter:image" content="https://shinobi-hub.github.io/og-image.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+
+<!-- Applies the saved theme before paint so the page never flashes. -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<!-- Structured data: tells search engines where this page sits in the site -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://shinobi-hub.github.io/portfolio-details.html#webpage",
+      "url": "https://shinobi-hub.github.io/portfolio-details.html",
+      "name": "Illustration Gallery",
+      "description": "Digital painting, character art and comic work by Shubham Dutta, founder and CEO of Bortex.",
+      "isPartOf": { "@id": "https://shinobi-hub.github.io/#website" },
+      "about": { "@id": "https://shinobi-hub.github.io/#person" },
+      "breadcrumb": { "@id": "https://shinobi-hub.github.io/portfolio-details.html#breadcrumb" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://shinobi-hub.github.io/portfolio-details.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Shubham Dutta", "item": "https://shinobi-hub.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Illustration", "item": "https://shinobi-hub.github.io/portfolio-details.html" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
-<body class="antialiased">
 
-    <!-- Navigation Header -->
-    <header class="backdrop-blur-lg sticky top-0 z-50 border-b border-gray-500/20 py-4" style="background-color: rgba(10, 10, 10, 0.5);">
-        <nav class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-gradient hover:opacity-80 transition-opacity">
-                &lt; Back to Home
-            </a>
-            <h1 class="text-3xl font-extrabold text-white">My Portfolio</h1>
-        </nav>
-    </header>
+<body>
 
-    <!-- Portfolio Section -->
-    <section class="py-12">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-8 text-center text-gradient">My Creative Works</h2>
-            <div class="portfolio-grid">
-                <!-- Portfolio Image 1 -->
-                <img src="https://raw.githubusercontent.com/Shinobi-hub/shinobi-hub.github.io/refs/heads/main/92489775_p0.webp" alt="Digital Art - Jett from Valorant" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0a0a0a/e2e8f0?text=Image+1';">
-                
-                <!-- Portfolio Image 2 -->
-                <img src="https://raw.githubusercontent.com/Shinobi-hub/shinobi-hub.github.io/refs/heads/main/101117665_p0.webp" alt="Digital Painting - Girl in Park" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0a0a0a/e2e8f0?text=Image+2';">
-                
-                <!-- Portfolio Image 3 -->
-                <img src="https://raw.githubusercontent.com/Shinobi-hub/shinobi-hub.github.io/refs/heads/main/100143095_p0.webp" alt="Comic Strip - Work Hard" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0a0a0a/e2e8f0?text=Image+3';">
-                
-                <!-- Portfolio Image 4 -->
-                <img src="https://raw.githubusercontent.com/Shinobi-hub/shinobi-hub.github.io/refs/heads/main/92489723_p0.webp" alt="Anime Style Character Art" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0a0a0a/e2e8f0?text=Image+4';">
-                
-                <!-- Portfolio Image 5 -->
-                <img src="https://raw.githubusercontent.com/Shinobi-hub/shinobi-hub.github.io/refs/heads/main/95292547_p0.webp" alt="Digital Portrait - Anime Girl" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0a0a0a/e2e8f0?text=Image+5';">
-            </div>
-        </div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="/">
+        <img src="/assets/img/avatar.webp" alt="" width="28" height="28" aria-hidden="true">
+        <span>Shubham Dutta</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="/#about">About</a></li>
+        <li><a class="nav-link" href="/#bortex">Bortex</a></li>
+        <li><a class="nav-link" href="/#experience">Experience</a></li>
+        <li><a class="nav-link" href="/#work">Work</a></li>
+        <li><a class="nav-link" href="/#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-utils">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 2.1a.75.75 0 0 1 .16.82A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9c.98 0 1.92-.16 2.8-.45a.75.75 0 0 1 .95.98A10.5 10.5 0 1 1 9.5 2.1Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-13.25a.75.75 0 0 1-.75-.75V1.5a.75.75 0 0 1 1.5 0V3a.75.75 0 0 1-.75.75Zm0 19.5a.75.75 0 0 1-.75-.75V21a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-.75.75ZM22.5 12.75H21a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5Zm-19.5 0H1.5a.75.75 0 0 1 0-1.5H3a.75.75 0 0 1 0 1.5Zm16.02-7.27-1.06 1.06a.75.75 0 1 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06ZM6.1 18.96l-1.06 1.06a.75.75 0 0 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06Zm12.86 1.06-1.06-1.06a.75.75 0 1 1 1.06-1.06l1.06 1.06a.75.75 0 0 1-1.06 1.06ZM6.1 5.04 5.04 3.98A.75.75 0 0 1 6.1 2.92l1.06 1.06A.75.75 0 0 1 6.1 5.04Z"/></svg>
+        </button>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+
+      <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+
+    <div class="page-header">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Shubham Dutta</a></li>
+          <li aria-current="page">Illustration</li>
+        </ol>
+      </nav>
+      <p class="label label--accent">Digital painting &amp; character art</p>
+      <h1>Illustration</h1>
+    </div>
+
+    <section class="section--tight">
+      <div class="prose measure" data-reveal>
+        <p>
+          Personal illustration work — digital painting, character studies and
+          the occasional comic. None of it is commercial; it is the thing I do
+          when I am not designing hardware.
+        </p>
+      </div>
+
+      <div class="work-grid" style="margin-top: var(--space-12)" data-reveal-stagger>
+        <figure class="work-card">
+          <img src="/assets/img/jett-valorant-digital-art.webp"
+               alt="Digital artwork of Jett, a character from the game Valorant"
+               width="1185" height="1600" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Jett<span>Character art</span></figcaption>
+        </figure>
+        <figure class="work-card">
+          <img src="/assets/img/girl-in-park-painting.webp"
+               alt="Digital painting of a girl sitting in a park"
+               width="1130" height="1600" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Park<span>Digital painting</span></figcaption>
+        </figure>
+        <figure class="work-card">
+          <img src="/assets/img/work-hard-comic-strip.webp"
+               alt="Comic strip panel with the theme work hard"
+               width="1600" height="1600" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Work Hard<span>Comic strip</span></figcaption>
+        </figure>
+        <figure class="work-card">
+          <img src="/assets/img/anime-character-art.webp"
+               alt="Anime style character illustration"
+               width="1600" height="900" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Character study<span>Illustration</span></figcaption>
+        </figure>
+        <figure class="work-card">
+          <img src="/assets/img/anime-portrait-digital.webp"
+               alt="Digital painted portrait in an anime style"
+               width="1600" height="1200" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Portrait<span>Digital painting</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="cta-row" style="margin-top: var(--space-12)" data-reveal>
+        <a class="btn btn-ghost" href="/creator-details.html">3D &amp; design work</a>
+        <a class="btn btn-ghost" href="/#work">&larr; Back to work</a>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-500/10 py-6 text-center text-gray-400">
-        <p>&copy; 2025 Shubham Dutta. All Rights Reserved.</p>
-    </footer>
-    
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span data-year>2026</span> Shubham Dutta</p>
+    <p class="clock" id="clock"></p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>

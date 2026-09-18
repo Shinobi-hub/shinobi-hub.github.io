@@ -1,76 +1,177 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: IoT Startup - Shubham Dutta</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Reusing the same theme variables and base styles for consistency */
-        :root {
-            --bg-color: #0a0a0a;
-            --text-color-primary: #e2e8f0;
-            --text-color-secondary: #94a3b8;
-            --header-bg: rgba(10, 10, 10, 0.5);
-            --section-bg: rgba(17, 24, 39, 0.3);
-        }
-        html:not(.dark) {
-            --bg-color: #f3f4f6;
-            --text-color-primary: #1f2937;
-            --text-color-secondary: #4b5563;
-            --header-bg: rgba(255, 255, 255, 0.5);
-            --section-bg: rgba(255, 255, 255, 0.3);
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color-primary);
-            font-family: 'Inter', sans-serif;
-        }
-        .text-secondary {
-            color: var(--text-color-secondary);
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ==========================================================================
+     PAGE INFORMATION  ·  safe to edit
+     ========================================================================== -->
+<title>Livingthings AI — Product Lead | Shubham Dutta</title>
+<meta name="description" content="Shubham Dutta led product at Livingthings AI, covering mechanical design, enclosure engineering, PCB integration and rapid prototyping for connected hardware.">
+<link rel="canonical" href="https://shinobi-hub.github.io/iot-project-details.html">
+<meta name="author" content="Shubham Dutta">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta name="theme-color" content="#0B0E12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F8FA" media="(prefers-color-scheme: light)">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Shubham Dutta">
+<meta property="og:title" content="Livingthings AI — Product Lead">
+<meta property="og:description" content="Shubham Dutta led product at Livingthings AI, covering mechanical design, enclosure engineering, PCB integration and rapid prototyping for connected hardware.">
+<meta property="og:url" content="https://shinobi-hub.github.io/iot-project-details.html">
+<meta property="og:image" content="https://shinobi-hub.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shubham Dutta — Founder and CEO of Bortex, Bengaluru, India.">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Livingthings AI — Product Lead">
+<meta name="twitter:description" content="Shubham Dutta led product at Livingthings AI, covering mechanical design, enclosure engineering, PCB integration and rapid prototyping for connected hardware.">
+<meta name="twitter:image" content="https://shinobi-hub.github.io/og-image.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+
+<!-- Applies the saved theme before paint so the page never flashes. -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<!-- Structured data: tells search engines where this page sits in the site -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://shinobi-hub.github.io/iot-project-details.html#webpage",
+      "url": "https://shinobi-hub.github.io/iot-project-details.html",
+      "name": "Livingthings AI \u2014 Product Lead",
+      "description": "Shubham Dutta led product at Livingthings AI, covering mechanical design, enclosure engineering, PCB integration and rapid prototyping for connected hardware.",
+      "isPartOf": { "@id": "https://shinobi-hub.github.io/#website" },
+      "about": { "@id": "https://shinobi-hub.github.io/#person" },
+      "breadcrumb": { "@id": "https://shinobi-hub.github.io/iot-project-details.html#breadcrumb" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://shinobi-hub.github.io/iot-project-details.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Shubham Dutta", "item": "https://shinobi-hub.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Livingthings AI", "item": "https://shinobi-hub.github.io/iot-project-details.html" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
-<body class="antialiased">
-    <!-- Header with a link back to the main portfolio -->
-    <header class="backdrop-blur-lg sticky top-0 z-50 border-b border-gray-500/20" style="background-color: var(--header-bg);">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">Shubham Dutta</a>
-            <a href="index.html#projects" class="text-lg hover:text-pink-500 transition-colors duration-300">&larr; Back to Portfolio</a>
-        </nav>
-    </header>
 
-    <!-- Main content area for the project details -->
-    <main class="container mx-auto px-6 py-20">
-        <div class="max-w-4xl mx-auto backdrop-blur-sm p-8 md:p-12 rounded-2xl" style="background-color: var(--section-bg);">
-            <h1 class="text-4xl font-bold mb-2">IoT Startup</h1>
-            <p class="text-xl text-secondary mb-8">Lead Product Designer</p>
-            
-            <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-violet-600 mb-8 rounded"></div>
+<body>
 
-            <!-- Demo content for the project -->
-            <div class="text-lg leading-relaxed space-y-6 text-secondary">
-                <p>In my role as the Lead Product Designer, I was at the forefront of hardware innovation. My primary responsibility was to translate conceptual ideas into tangible, functional prototypes that were both user-friendly and manufacturable.</p>
-                <p>This involved end-to-end mechanical design using SolidWorks, where I designed and iterated on custom enclosures to house our electronic components. I worked in close collaboration with the electrical engineering team to ensure seamless PCB integration, optimizing for space, thermal management, and ease of assembly.</p>
-                <h3 class="text-2xl font-bold text-primary pt-4">Key Contributions:</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    <li>Led the mechanical design and prototyping of the product casing from concept to pre-production.</li>
-                    <li>Utilized FDM and SLA 3D printing for rapid prototyping, allowing for quick iteration and functional testing.</li>
-                    <li>Collaborated on PCB layout to ensure proper fit, port alignment, and function within the enclosure.</li>
-                    <li>Managed component sourcing and established relationships with manufacturers for small-batch production runs.</li>
-                </ul>
-            </div>
-        </div>
-    </main>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Consistent footer -->
-    <footer class="border-t border-gray-500/10 py-6">
-        <div class="container mx-auto px-6 text-secondary text-center">
-            <p>&copy; 2025 Shubham Dutta. All Rights Reserved.</p>
-        </div>
-    </footer>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="/">
+        <img src="/assets/img/avatar.webp" alt="" width="28" height="28" aria-hidden="true">
+        <span>Shubham Dutta</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="/#about">About</a></li>
+        <li><a class="nav-link" href="/#bortex">Bortex</a></li>
+        <li><a class="nav-link" href="/#experience">Experience</a></li>
+        <li><a class="nav-link" href="/#work">Work</a></li>
+        <li><a class="nav-link" href="/#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-utils">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 2.1a.75.75 0 0 1 .16.82A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9c.98 0 1.92-.16 2.8-.45a.75.75 0 0 1 .95.98A10.5 10.5 0 1 1 9.5 2.1Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-13.25a.75.75 0 0 1-.75-.75V1.5a.75.75 0 0 1 1.5 0V3a.75.75 0 0 1-.75.75Zm0 19.5a.75.75 0 0 1-.75-.75V21a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-.75.75ZM22.5 12.75H21a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5Zm-19.5 0H1.5a.75.75 0 0 1 0-1.5H3a.75.75 0 0 1 0 1.5Zm16.02-7.27-1.06 1.06a.75.75 0 1 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06ZM6.1 18.96l-1.06 1.06a.75.75 0 0 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06Zm12.86 1.06-1.06-1.06a.75.75 0 1 1 1.06-1.06l1.06 1.06a.75.75 0 0 1-1.06 1.06ZM6.1 5.04 5.04 3.98A.75.75 0 0 1 6.1 2.92l1.06 1.06A.75.75 0 0 1 6.1 5.04Z"/></svg>
+        </button>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+
+      <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+
+    <div class="page-header">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Shubham Dutta</a></li>
+          <li aria-current="page">Livingthings AI</li>
+        </ol>
+      </nav>
+      <p class="label label--accent">Product Lead</p>
+      <h1>Livingthings AI</h1>
+    </div>
+
+    <section class="section--tight">
+      <div class="prose measure" data-reveal>
+        <p>
+          As Product Lead I was responsible for turning concepts into hardware
+          that could actually be built — devices that were usable, reliable and
+          manufacturable at small scale.
+        </p>
+        <p>
+          The work ran end to end: mechanical design in <strong>SolidWorks</strong>,
+          designing and iterating custom enclosures around the electronics, then
+          working alongside the electrical engineering team so PCB layout,
+          thermal behaviour, port alignment and assembly all resolved together
+          rather than fighting each other.
+        </p>
+      </div>
+
+      <div class="prose measure" data-reveal style="margin-top: var(--space-12)">
+        <h2 style="font-size: var(--fs-xl); color: var(--fg)">What I did</h2>
+        <ul>
+          <li>Led mechanical design and prototyping of the product housing, from concept through to pre-production.</li>
+          <li>Used FDM and SLA 3D printing for rapid iteration and functional testing.</li>
+          <li>Collaborated on PCB layout for fit, port alignment and thermal management inside the enclosure.</li>
+          <li>Managed component sourcing and built relationships with manufacturers for small-batch production runs.</li>
+        </ul>
+      </div>
+
+      <div class="cta-row" style="margin-top: var(--space-12)" data-reveal>
+        <a class="btn btn-ghost" href="/#experience">&larr; All experience</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span data-year>2026</span> Shubham Dutta</p>
+    <p class="clock" id="clock"></p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>

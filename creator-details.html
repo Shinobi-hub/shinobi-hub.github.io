@@ -1,94 +1,210 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: Creator - Shubham Dutta</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Reusing the same theme variables and base styles for consistency */
-        :root {
-            --bg-color: #0a0a0a;
-            --text-color-primary: #e2e8f0;
-            --text-color-secondary: #94a3b8;
-            --header-bg: rgba(10, 10, 10, 0.5);
-            --section-bg: rgba(17, 24, 39, 0.3);
-        }
-        html:not(.dark) {
-            --bg-color: #f3f4f6;
-            --text-color-primary: #1f2937;
-            --text-color-secondary: #4b5563;
-            --header-bg: rgba(255, 255, 255, 0.5);
-            --section-bg: rgba(255, 255, 255, 0.3);
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color-primary);
-            font-family: 'Inter', sans-serif;
-        }
-        .text-secondary {
-            color: var(--text-color-secondary);
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ==========================================================================
+     PAGE INFORMATION  ·  safe to edit
+     ========================================================================== -->
+<title>3D, Design &amp; Video | Shubham Dutta</title>
+<meta name="description" content="Blender product renders, 3D animation and video work by Shubham Dutta, founder of Bortex — where the product instinct behind the hardware came from.">
+<link rel="canonical" href="https://shinobi-hub.github.io/creator-details.html">
+<meta name="author" content="Shubham Dutta">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta name="theme-color" content="#0B0E12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F8FA" media="(prefers-color-scheme: light)">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Shubham Dutta">
+<meta property="og:title" content="3D, Design &amp; Video">
+<meta property="og:description" content="Blender product renders, 3D animation and video work by Shubham Dutta, founder of Bortex — where the product instinct behind the hardware came from.">
+<meta property="og:url" content="https://shinobi-hub.github.io/creator-details.html">
+<meta property="og:image" content="https://shinobi-hub.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shubham Dutta — Founder and CEO of Bortex, Bengaluru, India.">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3D, Design &amp; Video">
+<meta name="twitter:description" content="Blender product renders, 3D animation and video work by Shubham Dutta, founder of Bortex — where the product instinct behind the hardware came from.">
+<meta name="twitter:image" content="https://shinobi-hub.github.io/og-image.jpg">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+
+<!-- Applies the saved theme before paint so the page never flashes. -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<!-- Structured data: tells search engines where this page sits in the site -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://shinobi-hub.github.io/creator-details.html#webpage",
+      "url": "https://shinobi-hub.github.io/creator-details.html",
+      "name": "3D, Design & Video",
+      "description": "Blender product renders, 3D animation and video work by Shubham Dutta, founder of Bortex \u2014 where the product instinct behind the hardware came from.",
+      "isPartOf": { "@id": "https://shinobi-hub.github.io/#website" },
+      "about": { "@id": "https://shinobi-hub.github.io/#person" },
+      "breadcrumb": { "@id": "https://shinobi-hub.github.io/creator-details.html#breadcrumb" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://shinobi-hub.github.io/creator-details.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Shubham Dutta", "item": "https://shinobi-hub.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "3D & design", "item": "https://shinobi-hub.github.io/creator-details.html" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
-<body class="antialiased">
-    <!-- Header with a link back to the main portfolio -->
-    <header class="backdrop-blur-lg sticky top-0 z-50 border-b border-gray-500/20" style="background-color: var(--header-bg);">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">Shubham Dutta</a>
-            <a href="index.html#projects" class="text-lg hover:text-pink-500 transition-colors duration-300">&larr; Back to Portfolio</a>
-        </nav>
-    </header>
 
-    <!-- Main content area for the project details -->
-    <main class="container mx-auto px-6 py-20">
-        <div class="max-w-4xl mx-auto backdrop-blur-sm p-8 md:p-12 rounded-2xl" style="background-color: var(--section-bg);">
-            <h1 class="text-4xl font-bold mb-2">Creator</h1>
-            <p class="text-xl text-secondary mb-8">Freelancer & YouTuber</p>
-            
-            <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-violet-600 mb-8 rounded"></div>
+<body>
 
-            <!-- Existing content -->
-            <div class="text-lg leading-relaxed space-y-6 text-secondary">
-                <p>Beyond my academic and team commitments, I actively pursue my passion for digital creation. As a freelancer, I collaborate with clients on diverse projects, from graphic design to building custom PC setups tailored to their specific needs and budget.</p>
-                <p>My YouTube channel is my creative outlet for exploring and sharing my interests in technology. I script, film, and edit all my content, using DaVinci Resolve to produce high-quality videos that explain complex tech topics in an accessible and engaging way. This venture has honed my skills in storytelling, video production, and community engagement.</p>
-                <h3 class="text-2xl font-bold text-primary pt-4">Activities & Skills:</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    <li>Produce and edit tech-focused video content for a growing YouTube channel.</li>
-                    <li>Offer freelance services for custom PC building, hardware consultation, and troubleshooting.</li>
-                    <li>Create graphic design assets for clients, including logos, social media banners, and branding materials.</li>
-                    <li>Continuously learning new software and production techniques to improve content quality.</li>
-                </ul>
-            </div>
+<a class="skip-link" href="#main">Skip to content</a>
 
-            <!-- NEW: Blender Renders Gallery Section -->
-            <div class="mt-16">
-                <h3 class="text-2xl font-bold text-primary pt-4">Blender Renders</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-                    <!-- Image 1: Audi R8 -->
-                    <div>
-                        <img src="https://raw.githubusercontent.com/Shinobi-hub/shinobi-hub.github.io/refs/heads/main/0003.webp" alt="Blender render of a silver Audi R8 on a wet road" class="rounded-lg shadow-xl w-full h-auto transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/312e81/ffffff?text=Audi+R8';">
-                        <p class="text-center mt-4 text-secondary text-sm font-medium">Audi R8 on a misty road</p>
-                    </div>
-                    <!-- Image 2: Water Pitcher -->
-                    <div>
-                        <img src="https://raw.githubusercontent.com/Shinobi-hub/shinobi-hub.github.io/refs/heads/main/Untitled.webp" alt="Blender render of a glass pitcher and a dispenser" class="rounded-lg shadow-xl w-full h-auto transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/312e81/ffffff?text=Pitcher';">
-                        <p class="text-center mt-4 text-secondary text-sm font-medium">Glass Pitcher Concept</p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </main>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="/">
+        <img src="/assets/img/avatar.webp" alt="" width="28" height="28" aria-hidden="true">
+        <span>Shubham Dutta</span>
+      </a>
 
-    <!-- Consistent footer -->
-    <footer class="border-t border-gray-500/10 py-6">
-        <div class="container mx-auto px-6 text-secondary text-center">
-            <p>&copy; 2025 Shubham Dutta. All Rights Reserved.</p>
-        </div>
-    </footer>
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="/#about">About</a></li>
+        <li><a class="nav-link" href="/#bortex">Bortex</a></li>
+        <li><a class="nav-link" href="/#experience">Experience</a></li>
+        <li><a class="nav-link" href="/#work">Work</a></li>
+        <li><a class="nav-link" href="/#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-utils">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 2.1a.75.75 0 0 1 .16.82A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9c.98 0 1.92-.16 2.8-.45a.75.75 0 0 1 .95.98A10.5 10.5 0 1 1 9.5 2.1Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-13.25a.75.75 0 0 1-.75-.75V1.5a.75.75 0 0 1 1.5 0V3a.75.75 0 0 1-.75.75Zm0 19.5a.75.75 0 0 1-.75-.75V21a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-.75.75ZM22.5 12.75H21a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5Zm-19.5 0H1.5a.75.75 0 0 1 0-1.5H3a.75.75 0 0 1 0 1.5Zm16.02-7.27-1.06 1.06a.75.75 0 1 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06ZM6.1 18.96l-1.06 1.06a.75.75 0 0 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06Zm12.86 1.06-1.06-1.06a.75.75 0 1 1 1.06-1.06l1.06 1.06a.75.75 0 0 1-1.06 1.06ZM6.1 5.04 5.04 3.98A.75.75 0 0 1 6.1 2.92l1.06 1.06A.75.75 0 0 1 6.1 5.04Z"/></svg>
+        </button>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+
+      <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+
+    <div class="page-header">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Shubham Dutta</a></li>
+          <li aria-current="page">3D &amp; design</li>
+        </ol>
+      </nav>
+      <p class="label label--accent">Blender · product rendering · film</p>
+      <h1>3D, design and video</h1>
+    </div>
+
+    <section class="section--tight">
+      <div class="prose measure" data-reveal>
+        <p>
+          Before hardware there was rendering. Modelling, lighting and shading
+          products in <strong>Blender</strong> taught me how a thing reads to
+          someone seeing it for the first time — which turned out to be most of
+          what product design is.
+        </p>
+        <p>
+          I also script, shoot and edit video in <strong>DaVinci Resolve</strong>,
+          and take on freelance design work: brand identity, social assets and
+          custom PC builds.
+        </p>
+      </div>
+
+      <h2 style="font-size: var(--fs-xl); margin-top: var(--space-16); margin-bottom: var(--space-6)" data-reveal>Animation</h2>
+      <div data-reveal>
+        <video controls preload="none" playsinline
+               poster="/assets/video/hero-poster.jpg"
+               width="1440" height="810"
+               style="width:100%; border-radius: var(--radius); border: 1px solid var(--border)">
+          <source src="/assets/video/hero-loop.mp4" type="video/mp4">
+          Your browser cannot play this video.
+        </video>
+        <p class="label" style="margin-top: var(--space-3)">
+          Timber-framed house — Blender, animated turntable. Also used as the
+          backdrop on the home page.
+        </p>
+      </div>
+
+      <h2 style="font-size: var(--fs-xl); margin-top: var(--space-16); margin-bottom: var(--space-6)" data-reveal>Renders</h2>
+      <div class="work-grid" data-reveal-stagger>
+        <figure class="work-card">
+          <img src="/assets/img/audi-r8-blender-render.webp"
+               alt="Blender render of a silver Audi R8 on a misty road"
+               width="1600" height="900" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Audi R8<span>Vehicle render</span></figcaption>
+        </figure>
+        <figure class="work-card">
+          <img src="/assets/img/glass-pitcher-render.webp"
+               alt="Blender render of a glass pitcher and water dispenser"
+               width="1600" height="1600" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Glass pitcher<span>Product concept</span></figcaption>
+        </figure>
+        <figure class="work-card">
+          <img src="/assets/img/dropper-bottle-render.webp"
+               alt="Product render of a cosmetic dropper bottle"
+               width="1600" height="1600" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Dropper bottle<span>Packaging render</span></figcaption>
+        </figure>
+        <figure class="work-card">
+          <img src="/assets/img/blender-logo-glass-render.webp"
+               alt="The Blender logo rendered as a glass object with caustics"
+               width="1600" height="1600" loading="lazy" decoding="async">
+          <figcaption class="work-caption">Glass study<span>Caustics &amp; refraction</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="cta-row" style="margin-top: var(--space-12)" data-reveal>
+        <a class="btn btn-ghost" href="/portfolio-details.html">Illustration gallery</a>
+        <a class="btn btn-ghost" href="/#work">&larr; Back to work</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span data-year>2026</span> Shubham Dutta</p>
+    <p class="clock" id="clock"></p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
