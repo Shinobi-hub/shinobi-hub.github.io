@@ -55,6 +55,10 @@
      the wrong colour. This has to be inline and in the head to work. -->
 <script>
   (function () {
+    /* Marks that JavaScript is alive. site.css only hides the
+       scroll-reveal elements when this class is present, so a
+       broken script can never leave the page blank. */
+    document.documentElement.classList.add('js');
     try {
       var saved = localStorage.getItem('theme');
       var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;

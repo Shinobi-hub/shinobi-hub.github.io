@@ -956,25 +956,32 @@ html:not(.dark) .hero-media video { filter: brightness(1.75) contrast(0.85); }
    browser can do on the GPU — that is what keeps it at 60fps.
    ========================================================================== */
 
-[data-reveal] {
+/* IMPORTANT: every rule below is scoped to `.js`, a class that the inline
+   script in each page's <head> adds to <html>. That means the hiding only
+   ever happens when JavaScript is running to un-hide it again. If the
+   script is blocked, fails, or the visitor has JS turned off, none of this
+   applies and the content is simply visible. Without this guard a single
+   JavaScript error would render the whole page blank. */
+
+.js [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
   transition: opacity var(--d-reveal) var(--ease),
               transform var(--d-reveal) var(--ease);
 }
-[data-reveal].is-visible {
+.js [data-reveal].is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 /* Stagger children one after another */
-[data-reveal-stagger] > * {
+.js [data-reveal-stagger] > * {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
   transition: opacity var(--d-reveal) var(--ease),
               transform var(--d-reveal) var(--ease);
   transition-delay: calc(var(--i, 0) * 70ms);
 }
-[data-reveal-stagger].is-visible > * {
+.js [data-reveal-stagger].is-visible > * {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
