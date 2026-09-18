@@ -1,0 +1,16 @@
+{
+  "name": "Shubham Dutta — Founder & CEO of Bortex",
+  "short_name": "Shubham Dutta",
+  "description": "Founder and CEO of Bortex, building AI-powered border surveillance and tactical awareness systems for the Indian Armed Forces.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0B0E12",
+  "theme_color": "#0B0E12",
+  "lang": "en",
+  "icons": [
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

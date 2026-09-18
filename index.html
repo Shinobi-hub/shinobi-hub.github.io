@@ -1,479 +1,861 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Dutta - Interactive Portfolio</title>
-    
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter for main text & Pixelify Sans for marquee -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <style>
-        /* Base styles */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
+<!-- ==========================================================================
+     PAGE INFORMATION  ·  safe to edit
+     These are the words search engines and social networks show. Keep the
+     title under ~60 characters and the description under ~155.
+     ========================================================================== -->
+<title>Shubham Dutta — Founder &amp; CEO of Bortex | Defence Technology</title>
+<meta name="description" content="Shubham Dutta is the founder and CEO of Bortex, a Bengaluru defence-technology company building AI-powered border surveillance for the Indian Armed Forces.">
+<link rel="canonical" href="https://shinobi-hub.github.io/">
+<meta name="author" content="Shubham Dutta">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 
-        /* --- THEME COLORS using CSS Variables --- */
-        /* Dark Mode (Default) */
-        :root {
-            --bg-color: #0a0a0a;
-            --text-color-primary: #e2e8f0;
-            --text-color-secondary: #94a3b8;
-            ---bg: rgba(10, 10, 10, 0.5);
-            --section-bg: rgba(17, 24, 39, 0.3);
-            --card-bg: linear-gradient(135deg, #1e1b4b, #312e81);
-            --card-border: #4f46e5;
-            --card-text-color: #ffffff;
-            --h3-color: #e2e8f0;
-            --toggle-bg: rgba(71, 85, 105, 0.4);
-            --toggle-icon-color: #f1f5f9;
-        }
+<!-- Browser UI colour, per theme -->
+<meta name="theme-color" content="#0B0E12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F8FA" media="(prefers-color-scheme: light)">
 
-        /* Light Mode */
-        html:not(.dark) {
-            --bg-color: #f3f4f6;
-            --text-color-primary: #1f2937;
-            --text-color-secondary: #4b5563;
-            ---bg: rgba(255, 255, 255, 0.5);
-            --section-bg: rgba(255, 255, 255, 0.3);
-            --card-bg: linear-gradient(135deg, #e0e7ff, #f3e8ff);
-            --card-border: #d1d5db;
-            --card-text-color: #111827;
-            --h3-color: #1f2937;
-            --toggle-bg: rgba(203, 213, 225, 0.7);
-            --toggle-icon-color: #475569;
-        }
-        
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color-primary);
-        }
-        .text-secondary {
-            color: var(--text-color-secondary);
-        }
-        h3 {
-            color: var(--h3-color);
-        }
+<!-- ===== Link previews (Facebook, LinkedIn, WhatsApp, Slack, iMessage) ===== -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Shubham Dutta">
+<meta property="og:title" content="Shubham Dutta — Founder &amp; CEO of Bortex">
+<meta property="og:description" content="Building AI-powered border surveillance and tactical awareness systems for the Indian Armed Forces, from Bengaluru.">
+<meta property="og:url" content="https://shinobi-hub.github.io/">
+<meta property="og:image" content="https://shinobi-hub.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shubham Dutta — Founder and CEO of Bortex, Bengaluru, India.">
+<meta property="og:locale" content="en_IN">
+<meta property="profile:first_name" content="Shubham">
+<meta property="profile:last_name" content="Dutta">
 
-        /* --- ANIMATIONS AND EFFECTS --- */
-        .text-gradient {
-            background-image: linear-gradient(to right, #ec4899, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .typed-cursor {
-            opacity: 1;
-            animation: blink 0.7s infinite;
-        }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
-        
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+<!-- ===== Link previews (X / Twitter) ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shubham Dutta — Founder &amp; CEO of Bortex">
+<meta name="twitter:description" content="Building AI-powered border surveillance and tactical awareness systems for the Indian Armed Forces, from Bengaluru.">
+<meta name="twitter:image" content="https://shinobi-hub.github.io/og-image.jpg">
+<meta name="twitter:image:alt" content="Shubham Dutta — Founder and CEO of Bortex, Bengaluru, India.">
 
-        /* --- Parallax Shapes --- */
-        #parallax-container {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            overflow: hidden; z-index: 0;
-        }
-        .parallax-shape {
-            position: absolute; border-radius: 9999px; transition: transform 0.1s ease-out;
-        }
-        .parallax-shape.one { background: rgba(236, 72, 153, 0.1); width: 150px; height: 150px; top: 20%; left: 15%; }
-        .parallax-shape.two { background: rgba(139, 92, 246, 0.1); width: 200px; height: 200px; top: 50%; left: 80%; }
-        .parallax-shape.three { background: rgba(236, 72, 153, 0.05); width: 100px; height: 100px; top: 70%; left: 10%; }
+<!-- ===== Icons ===== -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
 
-        /* --- Scroll-driven Marquee --- */
-        .marquee {
-            width: 100%;
-            background-color: #ec4899;
-            color: white;
-            padding: 0.75rem 0;
-            white-space: nowrap;
-            overflow: hidden;
-            box-shadow: 0 -5px 20px rgba(236, 72, 153, 0.3);
-        }
-        .marquee-content {
-            display: inline-block;
-            font-family: 'Pixelify Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-        }
-        
-        /* --- Experience Card Expanding Hover --- */
-        .experience-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            color: var(--card-text-color);
-            border-radius: 1rem;
-            padding: 2rem;
-            height: 14rem; /* Start with a smaller height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden; /* Crucial for hiding content */
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth ease-out transition */
-        }
-        
-        .experience-card:hover {
-            height: 22rem; /* Expand height on hover */
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.4);
-        }
+<!-- ===== Styles =====
+     The font is preloaded so text paints as early as possible. -->
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
 
-        .experience-card .title {
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        .experience-card:hover .title {
-            transform: translateY(-2rem); /* Move title up on hover */
-        }
-        
-        .experience-card .details {
-            opacity: 0;
-            max-height: 0;
-            transition: all 0.5s ease 0.1s; /* Delay appearance slightly */
-        }
+<!-- Applies the saved theme before the page paints, so it never flashes
+     the wrong colour. This has to be inline and in the head to work. -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) { /* private browsing — keep the default dark theme */ }
+  })();
+</script>
 
-        .experience-card:hover .details {
-            opacity: 1;
-            max-height: 10rem; /* Make sure this is large enough */
+<!-- ==========================================================================
+     STRUCTURED DATA
+     This is the machine-readable version of the page. It is what Google,
+     ChatGPT, Perplexity and Claude read to understand who you are and how
+     you relate to Bortex. Keep it in sync with the visible text below.
+     ========================================================================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://shinobi-hub.github.io/#person",
+      "name": "Shubham Dutta",
+      "givenName": "Shubham",
+      "familyName": "Dutta",
+      "url": "https://shinobi-hub.github.io/",
+      "image": "https://shinobi-hub.github.io/og-image.jpg",
+      "jobTitle": "Founder & CEO",
+      "description": "Founder and CEO of Bortex, a defence-technology company in Bengaluru, India, building AI-powered border surveillance and tactical awareness systems for the Indian Armed Forces.",
+      "nationality": { "@type": "Country", "name": "India" },
+      "worksFor": { "@id": "https://bortex.co.in/#organization" },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Indian Institute of Technology Bombay",
+        "sameAs": "https://www.iitb.ac.in/"
+      },
+      "homeLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
         }
-        
-        /* --- Simplified Skill Tags --- */
-        .skill-tag {
-            color: var(--text-color-secondary);
-            margin-right: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-            display: inline-block;
+      },
+      "knowsAbout": [
+        "Defence technology",
+        "Autonomous systems",
+        "Computer vision",
+        "Thermal imaging and EO/IR sensors",
+        "Counter-UAS systems",
+        "Sensor fusion",
+        "Mechanical engineering",
+        "Product design",
+        "Augmented reality optics"
+      ],
+      "sameAs": [
+        "https://bortex.co.in/founder",
+        "https://www.linkedin.com/in/shubham-designer/",
+        "https://github.com/Shinobi-hub"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://bortex.co.in/#organization",
+      "name": "Bortex",
+      "legalName": "Bortex Private Limited",
+      "url": "https://bortex.co.in",
+      "logo": "https://bortex.co.in/bortex-logo-orange.svg",
+      "description": "Bortex is a defence-technology company building AI-powered border observability and tactical awareness systems. Its X-Matrix architecture fuses sensor data across air, land and sea in real time.",
+      "foundingDate": "2026-06",
+      "founder": { "@id": "https://shinobi-hub.github.io/#person" },
+      "industry": "Defence Technology",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/bortextech",
+        "https://x.com/BORTEX_DEFENCE"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://shinobi-hub.github.io/#website",
+      "url": "https://shinobi-hub.github.io/",
+      "name": "Shubham Dutta",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://shinobi-hub.github.io/#person" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://shinobi-hub.github.io/#profilepage",
+      "url": "https://shinobi-hub.github.io/",
+      "name": "Shubham Dutta — Founder & CEO of Bortex",
+      "isPartOf": { "@id": "https://shinobi-hub.github.io/#website" },
+      "about": { "@id": "https://shinobi-hub.github.io/#person" },
+      "mainEntity": { "@id": "https://shinobi-hub.github.io/#person" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://shinobi-hub.github.io/#faq",
+      "isPartOf": { "@id": "https://shinobi-hub.github.io/#website" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Shubham Dutta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shubham Dutta is the founder and CEO of Bortex, a defence-technology company based in Bengaluru, India. He holds a BTech in Mechanical Engineering from IIT Bombay and previously worked at Vibe, Livingthings AI, Paar Autonomy and Zomato."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Bortex?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bortex is an Indian defence-technology company founded in June 2026 and headquartered in Bengaluru. It builds AI-powered border observability and tactical awareness systems for the Indian Armed Forces, built on its X-Matrix sensor-fusion architecture."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What products does Bortex build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bortex builds four systems: Vanguard, soldier-mounted augmented-reality glasses; Perimeter, autonomous border-surveillance towers; Trident, an AI counter-drone platform; and Vigil, a multi-domain air, sea and ground robotics mesh."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Bortex based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bortex is headquartered in Bengaluru, Karnataka, India. In July 2026 it was incubated at ITI Limited, a Government of India enterprise, through the Vinyas Startup Hub programme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the X-Matrix architecture?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "X-Matrix is the sensor-fusion backbone built by Bortex. It ingests data from cameras, radar, acoustic sensors and unmanned assets in real time and fuses it into one operating picture across air, land and sea."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What did Shubham Dutta do before founding Bortex?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Before Bortex, Shubham Dutta co-founded Vibe, an agentic-commerce startup, led product at Livingthings AI, worked as an APM and reliability engineer at Paar Autonomy, worked on AI supply chain at Zomato, and researched femtosecond-laser optics at IIT Bombay."
+          }
         }
-
-        /* --- Sun/Moon Theme Toggle --- */
-        #theme-toggle {
-            background-color: var(--toggle-bg);
-            border-radius: 9999px;
-            padding: 0.25rem;
-            width: 3.5rem; /* 56px */
-            height: 1.75rem; /* 28px */
-            display: flex;
-            align-items: center;
-            position: relative;
-            cursor: pointer;
-        }
-        #theme-toggle svg {
-            width: 1.25rem; /* 20px */
-            height: 1.25rem;
-            position: absolute;
-            transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            color: var(--toggle-icon-color);
-        }
-        .sun-icon {
-            opacity: 0;
-            transform: translateX(1.75rem) rotate(90deg);
-        }
-        .moon-icon {
-            transform: translateX(1.75rem) rotate(0);
-        }
-        html:not(.dark) .sun-icon {
-            opacity: 1;
-            transform: translateX(0.25rem) rotate(0);
-        }
-        html:not(.dark) .moon-icon {
-            opacity: 0;
-            transform: translateX(0.25rem) rotate(-90deg);
-        }
-
-        /* Portfolio Image Grid (removed as per request, but keeping style block for reference) */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .portfolio-grid img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-        .portfolio-grid img:hover {
-            transform: scale(1.05);
-        }
-
-    </style>
+      ]
+    }
+  ]
+}
+</script>
 </head>
-<body class="antialiased">
 
-    <!--  & Navigation -->
-    <header class="backdrop-blur-lg sticky top-0 z-50 border-b border-gray-500/20" style="background-color: var(--header-bg);">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- LOGO ADDED HERE -->
-            <a href="index.html" class="flex items-center gap-x-3 text-2xl font-bold">
-                <img src="https://raw.githubusercontent.com/Shinobi-hub/shinobi-hub.github.io/refs/heads/main/Web%20logo.webp" alt="Logo" class="h-8 w-8 rounded-full object-cover">
-                <span>Shubham Dutta</span>
-            </a>
-            <div class="hidden md:flex items-center space-x-8 text-lg">
-                <a href="#about" class="hover:text-pink-500 transition-colors duration-300">About</a>
-                <a href="#skills" class="hover:text-pink-500 transition-colors duration-300">Skills</a>
-                <a href="#projects" class="hover:text-pink-500 transition-colors duration-300">Experience</a>
-                <a href="#contact" class="hover:text-pink-500 transition-colors duration-300">Contact</a>
-                <button id="theme-toggle" title="Toggle dark/light mode">
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.803 17.803a.75.75 0 01-1.06 0l-1.59-1.591a.75.75 0 111.06-1.06l1.59 1.59a.75.75 0 010 1.06zM12 21a.75.75 0 01-.75-.75v-2.25a.75.75 0 011.5 0v2.25a.75.75 0 01-.75.75zM5.197 17.803a.75.75 0 010-1.06l1.59-1.591a.75.75 0 011.06 1.06l-1.59 1.59a.75.75 0 01-1.06 0zM3 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3.75A.75.75 0 013 12zM6.107 6.106a.75.75 0 011.06 0l1.591 1.59a.75.75 0 01-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06z"/></svg>
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 004.463-.949a.75.75 0 01.981.651A10.503 10.503 0 0112 22.5A10.5 10.5 0 011.5 12c0-5.42 4.135-9.921 9.472-10.472a.75.75 0 01.556.19z" clip-rule="evenodd" /></svg>
-                </button>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen relative flex items-center justify-center">
-        <div id="parallax-container">
-            <div class="parallax-shape one" data-depth="0.2"></div>
-            <div class="parallax-shape two" data-depth="0.4"></div>
-            <div class="parallax-shape three" data-depth="0.6"></div>
-        </div>
-        <div class="text-center z-10">
-            <h1 class="relative text-5xl md:text-7xl font-extrabold leading-tight">
-                I design & build <span id="typed-text" class="text-gradient"></span><span class="typed-cursor">|</span>
-            </h1>
-            <p class="relative mt-6 text-xl max-w-2xl mx-auto text-secondary">
-                A Mechanical Engineering student blending hardware innovation with digital creativity.
-            </p>
-            <a href="#projects" class="relative mt-10 inline-block bg-gradient-to-r from-pink-500 to-violet-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                View My Work
-            </a>
-        </div>
-    </section>
-    
-    <!-- Marquee Section -->
-    <div class="marquee">
-        <div id="marquee-content" class="marquee-content">
-            <span>KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        KEEP SCROLLING >>        </span>
-        </div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="/">
+        <img src="/assets/img/avatar.webp" alt="" width="28" height="28" aria-hidden="true">
+        <span>Shubham Dutta</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#bortex">Bortex</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#work">Work</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-utils">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 2.1a.75.75 0 0 1 .16.82A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9c.98 0 1.92-.16 2.8-.45a.75.75 0 0 1 .95.98A10.5 10.5 0 1 1 9.5 2.1Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-13.25a.75.75 0 0 1-.75-.75V1.5a.75.75 0 0 1 1.5 0V3a.75.75 0 0 1-.75.75Zm0 19.5a.75.75 0 0 1-.75-.75V21a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-.75.75ZM22.5 12.75H21a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5Zm-19.5 0H1.5a.75.75 0 0 1 0-1.5H3a.75.75 0 0 1 0 1.5Zm16.02-7.27-1.06 1.06a.75.75 0 1 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06ZM6.1 18.96l-1.06 1.06a.75.75 0 0 1-1.06-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06Zm12.86 1.06-1.06-1.06a.75.75 0 1 1 1.06-1.06l1.06 1.06a.75.75 0 0 1-1.06 1.06ZM6.1 5.04 5.04 3.98A.75.75 0 0 1 6.1 2.92l1.06 1.06A.75.75 0 0 1 6.1 5.04Z"/></svg>
+        </button>
+
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+
+      <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================================
+       HERO  ·  safe to edit
+       The video behind this is decorative. The text below is what search
+       engines and AI assistants actually read, so the key facts live here
+       in plain words rather than inside the animation.
+       ======================================================================== -->
+  <section class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="/assets/video/hero-poster.jpg" alt="" width="1280" height="720" fetchpriority="high">
+      <video id="hero-video" muted loop playsinline preload="none"
+             poster="/assets/video/hero-poster.jpg" tabindex="-1">
+        <source data-src="/assets/video/hero-loop.mp4" type="video/mp4">
+      </video>
     </div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-inner" data-reveal-stagger>
+        <p class="label label--accent">Founder &amp; CEO · Bortex · Bengaluru</p>
+
+        <h1 class="hero-title">Shubham Dutta</h1>
+
+        <p class="hero-lede">
+          I'm the founder and CEO of <strong>Bortex</strong>, a defence-technology
+          company building AI-powered border surveillance and tactical awareness
+          systems for the Indian Armed Forces.
+        </p>
+
+        <ul class="hero-meta">
+          <li>BTech Mechanical Engineering, IIT Bombay</li>
+          <li>Incubated at ITI Limited</li>
+          <li>Est. 2026</li>
+        </ul>
+
+        <div class="cta-row hero-cta">
+          <a class="btn btn-primary" href="https://bortex.co.in" target="_blank" rel="noopener">
+            See Bortex
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            <span class="sr-only">(opens in a new tab)</span>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-    <!-- About Section -->
-    <section id="about" class="py-20 reveal">
-        <div class="container mx-auto px-6 max-w-4xl backdrop-blur-sm p-8 md:p-12 rounded-2xl" style="background-color: var(--section-bg);">
-            <h2 class="text-4xl font-bold mb-4 text-center">About Me</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-violet-600 mx-auto mb-8 rounded"></div>
-            <div class="text-lg leading-relaxed space-y-6 text-secondary">
-                <p>I'm a Mechanical Engineering student at IIT Bombay (Class of 2024) with a passion for building things — from hardware prototypes to digital content. In my second year, I joined a startup as a graphic design intern, but quickly transitioned into product development. I led the mechanical and product design of an IoT-based startup, collaborating closely with a small team to design enclosures, assist with PCB integration, and prototype functional hardware.</p>
-                <p>Alongside this, I was actively involved in tech teams, developing teamwork, communication, and project management skills within competitive technical environments. Outside the classroom, I work as a freelancer and YouTuber. I’m currently exploring opportunities where I can contribute to real-world projects that combine engineering, design, and digital creativity.</p>
+  <!-- ========================================================================
+       ABOUT  ·  safe to edit
+       ======================================================================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="label">01 — About</p>
+        <h2>Hardware, autonomy, and the gap between seeing and deciding.</h2>
+      </div>
+
+      <div class="prose measure" data-reveal>
+        <p>
+          <strong>Shubham Dutta</strong> is the founder and CEO of
+          <strong>Bortex</strong>, a defence-technology company headquartered in
+          Bengaluru, India. Bortex builds AI-powered border observability and
+          tactical awareness systems for the Indian Armed Forces.
+        </p>
+        <p>
+          He studied Mechanical Engineering at <strong>IIT Bombay</strong>,
+          graduating in 2024, where his work spanned femtosecond-laser optics
+          research and terrain-adapting hexapod robots. Before founding Bortex he
+          co-founded <strong>Vibe</strong>, an agentic-commerce startup, led
+          product at <strong>Livingthings AI</strong>, worked as an APM and
+          reliability engineer at <strong>Paar Autonomy</strong>, and worked on AI
+          supply chain at <strong>Zomato</strong>.
+        </p>
+        <p>
+          Bortex was incorporated in June 2026 and incubated in July 2026 at
+          <strong>ITI Limited</strong>, a Government of India enterprise, through
+          the Vinyas Startup Hub programme.
+        </p>
+      </div>
+
+      <figure class="pullquote" data-reveal style="margin-top: var(--space-12)">
+        <blockquote>
+          &ldquo;Technology should be the asymmetric advantage of the nation that
+          builds it — not a dependency on the one that sells it.&rdquo;
+        </blockquote>
+        <figcaption>— on why Bortex builds indigenously</figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================
+       BORTEX  ·  the flagship section
+       Product facts here mirror bortex.co.in. If a product changes there,
+       update it here too.
+       ======================================================================== -->
+  <section class="section section--panel" id="bortex">
+    <div class="container">
+
+      <div class="section-head" data-reveal>
+        <p class="label">02 — Bortex</p>
+        <h2>Border observability and tactical awareness.</h2>
+        <p class="lede">
+          Bortex closes the gap between something happening on a border and
+          someone deciding what to do about it.
+        </p>
+      </div>
+
+      <!-- Headline figures. The real numbers are written in the HTML, so they
+           are readable even if JavaScript never runs; the script only counts
+           up to the value already present. -->
+      <div class="stat-grid" data-reveal>
+        <div class="stat">
+          <span class="stat-num" data-count-to="10" data-count-suffix="K+">10K+</span>
+          <span class="stat-label">Miles monitored</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count-to="200" data-count-prefix="&lt;" data-count-suffix="ms">&lt;200ms</span>
+          <span class="stat-label">Alert latency</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">All-weather operation</span>
+        </div>
+      </div>
+
+      <div class="bortex-layout">
+
+        <!-- Sticky left rail -->
+        <div class="bortex-rail" data-reveal>
+          <p class="label label--accent">The X-Matrix architecture</p>
+          <p style="color: var(--fg-muted)">
+            X-Matrix is the sensor-fusion backbone underneath every Bortex
+            system. It ingests camera, radar, acoustic and unmanned-asset data
+            in real time and fuses it into a single operating picture across
+            air, land and sea.
+          </p>
+          <ul class="rail-list" aria-hidden="true">
+            <li class="rail-dot is-active" data-rail-dot="vanguard">Vanguard</li>
+            <li class="rail-dot" data-rail-dot="perimeter">Perimeter</li>
+            <li class="rail-dot" data-rail-dot="trident">Trident</li>
+            <li class="rail-dot" data-rail-dot="vigil">Vigil</li>
+          </ul>
+          <a class="arrow-link" href="https://bortex.co.in" target="_blank" rel="noopener">
+            bortex.co.in
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+
+        <!-- Product cards -->
+        <div class="product-stack">
+
+          <article class="card product-card" data-rail-card="vanguard" data-reveal>
+            <div class="product-head">
+              <h3 class="product-name">Vanguard</h3>
+              <span class="status-pill">R&amp;D · 2027</span>
             </div>
-        </div>
-    </section>
+            <p class="product-tagline">
+              Sensory dominance, soldier-mounted. Ruggedised augmented-reality
+              glasses that overlay navigation, targeting, sensor and squad data
+              onto a soldier's field of view.
+            </p>
+            <dl class="product-specs">
+              <div class="spec-row"><dt>Field of view</dt><dd>60° binocular HUD</dd></div>
+              <div class="spec-row"><dt>Sensors</dt><dd>Thermal · LRF · SWIR · LWIR</dd></div>
+              <div class="spec-row"><dt>Battery</dt><dd>8+ hrs, hot-swap</dd></div>
+            </dl>
+            <a class="arrow-link card-link" href="https://bortex.co.in/products/vanguard" target="_blank" rel="noopener">
+              Vanguard on bortex.co.in
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </article>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 reveal">
-         <div class="container mx-auto px-6 max-w-4xl backdrop-blur-sm p-8 md:p-12 rounded-2xl" style="background-color: var(--section-bg);">
-            <h2 class="text-4xl font-bold mb-4 text-center">Tools & Skills</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-violet-600 mx-auto mb-12 rounded"></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-center md:text-left">Tools I Work With</h3>
-                    <div class="flex flex-wrap items-center justify-center md:justify-start">
-                        <span class="skill-tag">SolidWorks</span>
-                        <span class="skill-tag">KiCAD</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">DaVinci Resolve</span>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-center md:text-left">Interests</h3>
-                    <div class="flex flex-wrap items-center justify-center md:justify-start">
-                         <span class="skill-tag">Product Development</span>
-                         <span class="skill-tag">IoT</span>
-                         <span class="skill-tag">Hardware Startups</span>
-                         <span class="skill-tag">Content Creation</span>
-                    </div>
-                </div>
+          <article class="card product-card" data-rail-card="perimeter" data-reveal>
+            <div class="product-head">
+              <h3 class="product-name">Perimeter</h3>
+              <span class="status-pill">Ideation · 2027</span>
             </div>
-        </div>
-    </section>
+            <p class="product-tagline">
+              Autonomous towers. 20 km radius. Any weather. Solar-augmented
+              surveillance towers that detect, classify and track incursions
+              across border, coast and base perimeters.
+            </p>
+            <dl class="product-specs">
+              <div class="spec-row"><dt>Detection</dt><dd>20 km person · 35 km vehicle</dd></div>
+              <div class="spec-row"><dt>Sensors</dt><dd>EO/IR · radar · acoustic</dd></div>
+              <div class="spec-row"><dt>Autonomy</dt><dd>Solar + wind, 14 days off-grid</dd></div>
+            </dl>
+            <a class="arrow-link card-link" href="https://bortex.co.in/products/perimeter" target="_blank" rel="noopener">
+              Perimeter on bortex.co.in
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </article>
 
-    <!-- Experience Section -->
-    <section id="projects" class="py-20 reveal">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-4 text-center">My Experience</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-violet-600 mx-auto mb-12 rounded"></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                
-                <!-- Card 1: Wrapped with an anchor tag -->
-                <a href="iot-project-details.html" class="block">
-                    <div class="experience-card reveal">
-                        <div class="title">
-                            <h3 class="text-3xl font-bold">IoT Startup</h3>
-                            <p class="text-secondary mt-2">Lead Product Designer</p>
-                        </div>
-                        <div class="details">
-                            <p class="mt-4 text-sm text-secondary">Designed hardware enclosures, assisted with PCB integration, and led prototyping efforts.</p>
-                        </div>
-                    </div>
-                </a>
-                
-                <!-- Card 2: Wrapped with an anchor tag -->
-                <a href="team-leadership-details.html" class="block">
-                    <div class="experience-card reveal">
-                        <div class="title">
-                            <h3 class="text-3xl font-bold">Team Leadership</h3>
-                            <p class="text-secondary mt-2">Team Rakshak & Inter-IIT</p>
-                        </div>
-                        <div class="details">
-                            <p class="mt-4 text-sm text-secondary">VP of Marketing & Head of Design. Managed branding, apparel, and sponsorships.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 3: Wrapped with an anchor tag -->
-                <a href="creator-details.html" class="block">
-                    <div class="experience-card reveal">
-                        <div class="title">
-                            <h3 class="text-3xl font-bold">Creator</h3>
-                            <p class="text-secondary mt-2">Freelancer & YouTuber</p>
-                        </div>
-                        <div class="details">
-                            <p class="mt-4 text-sm text-secondary">Create tech content, edit videos, and build custom PC setups for clients and my channel.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- New Card: Portfolio - now a clickable link -->
-                <a href="portfolio-details.html" class="block">
-                    <div class="experience-card reveal">
-                        <div class="title">
-                            <h3 class="text-3xl font-bold">Portfolio</h3>
-                            <p class="text-secondary mt-2">My Creative Works</p>
-                        </div>
-                        <div class="details">
-                            <p class="mt-4 text-sm text-secondary">Explore a collection of my creative design and art projects.</p>
-                        </div>
-                    </div>
-                </a>
+          <article class="card product-card" data-rail-card="trident" data-reveal>
+            <div class="product-head">
+              <h3 class="product-name">Trident</h3>
+              <span class="status-pill">Ideation · 2027</span>
             </div>
-        </div>
-    </section>
+            <p class="product-tagline">
+              Detect. Classify. Neutralise. Under two seconds. A layered
+              counter-UAS platform combining RF detection, radar and EO/IR with
+              machine-learning classification.
+            </p>
+            <dl class="product-specs">
+              <div class="spec-row"><dt>Detect range</dt><dd>8 km RF · 5 km radar</dd></div>
+              <div class="spec-row"><dt>Response</dt><dd>&lt;2 s detect-to-classify</dd></div>
+              <div class="spec-row"><dt>Target class</dt><dd>Group 1–3 UAS</dd></div>
+            </dl>
+            <a class="arrow-link card-link" href="https://bortex.co.in/products/trident" target="_blank" rel="noopener">
+              Trident on bortex.co.in
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </article>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 text-center reveal">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-violet-600 mx-auto mb-8 rounded"></div>
-            <p class="text-lg text-secondary max-w-2xl mx-auto mb-10">I’m currently exploring opportunities where I can contribute to real-world projects. Let's connect!</p>
-            <div class="flex justify-center items-center flex-wrap gap-x-6 md:gap-x-8 gap-y-4">
-                 <a href="https://github.com/Shinobi-hub" target="_blank" class="text-secondary hover:text-pink-500 transition-all transform hover:scale-110" aria-label="GitHub"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg></a>
-                 <a href="https://www.linkedin.com/in/shubham-designer/" target="_blank" class="text-secondary hover:text-pink-500 transition-all transform hover:scale-110" aria-label="LinkedIn"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                 <a href="https://wa.me/916362983679" target="_blank" class="text-secondary hover:text-pink-500 transition-all transform hover:scale-110" aria-label="WhatsApp"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 4.315 1.847 6.039l-1.109 4.057 4.144-1.082zM12 5.995c.138.001.276.005.413.013l.001.001h.001c.145.01.29.023.433.04l.003.001c.281.04.557.1.828.175l.004.001c.27.075.532.16.787.255l.004.002c.247.09.487.188.717.29l.005.002c.221.1.434.208.638.32l.005.003c.196.104.385.215.564.33l.006.004c3.085 1.959 3.485 5.92 1.341 8.82l-.003.004c-2.245 2.8-5.968 3.6-8.924 1.8l-.004-.002c-.39-.22-.764-.465-1.118-.73l-.004-.003c-.34-.255-.664-.525-.97-.81l-.004-.004c-.29-.27-.56-.55-.81-.84l-.003-.004c-.48-.58-.88-1.21-1.19-1.88l-.002-.004c-.3-.64-.52-1.32-.65-2.02l-.002-.007c-.13-.7-.18-1.42-.17-2.14.05-4.5 3.7-8.15 8.2-8.15z"/></svg></a>
-                 <a href="https://www.youtube.com/@shinobi6066" target="_blank" class="text-secondary hover:text-pink-500 transition-all transform hover:scale-110" aria-label="YouTube"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
-                 <a href="https://www.instagram.com/shub.hamxd/" target="_blank" class="text-secondary hover:text-pink-500 transition-all transform hover:scale-110" aria-label="Instagram"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
-                 <a href="https://www.pixiv.net/en/users/63648103" target="_blank" class="text-secondary hover:text-pink-500 transition-all transform hover:scale-110" aria-label="Pixiv"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM15.28 17.5h-1.57l-.66-1.51h-2.1l-.66 1.51H8.72l3.28-7.59h1.44l2.5 5.67V17.5z"/><path d="M13.29 14.86l-.99-2.28c-.1-.22-.18-.45-.25-.72h-.03c-.07.27-.15.5-.25.72l-.99 2.28h2.51z" fill-opacity="0.7"/></svg></a>
+          <article class="card product-card" data-rail-card="vigil" data-reveal>
+            <div class="product-head">
+              <h3 class="product-name">Vigil</h3>
+              <span class="status-pill">Ideation · 2027</span>
             </div>
+            <p class="product-tagline">
+              Air, sea, ground robotics — one mesh. Multi-domain unmanned
+              surveillance coordinating aerial UAVs, surface and underwater
+              vessels and ground robots through X-Matrix.
+            </p>
+            <dl class="product-specs">
+              <div class="spec-row"><dt>Air</dt><dd>Group 1–2 UAS (VTOL)</dd></div>
+              <div class="spec-row"><dt>Sea &amp; ground</dt><dd>USV · UUV · UGV</dd></div>
+              <div class="spec-row"><dt>Operator load</dt><dd>1 → 12+ assets</dd></div>
+            </dl>
+            <a class="arrow-link card-link" href="https://bortex.co.in/products/vigil" target="_blank" rel="noopener">
+              Vigil on bortex.co.in
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </article>
+
         </div>
-    </section>
+      </div>
 
-    <!-- Footer with Clock -->
-    <footer class="border-t border-gray-500/10 py-6">
-        <div class="container mx-auto px-6 text-secondary flex justify-between items-center">
-            <p>&copy; 2025 Shubham Dutta. All Rights Reserved.</p>
-            <div id="clock" class="text-lg font-mono"></div>
+      <p class="label" style="margin-top: var(--space-8)">
+        Product specifications and figures as published by Bortex.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================
+       EXPERIENCE  ·  safe to edit
+       ⚠ THE DATES MARKED "—" NEED FILLING IN. Replace the — with a range
+       like "2025 — 2026". Nothing else needs to change.
+       ======================================================================== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="label">03 — Experience</p>
+        <h2>Where I've built things.</h2>
+      </div>
+
+      <ol class="timeline">
+
+        <li class="tl-item tl-item--current" data-reveal>
+          <div class="tl-date">2026 — Present</div>
+          <div class="tl-body">
+            <h3 class="tl-role">Founder &amp; CEO</h3>
+            <p class="tl-org">Bortex · Bengaluru</p>
+            <p class="tl-desc">
+              Building AI-powered border surveillance and tactical awareness
+              systems for the Indian Armed Forces, on the X-Matrix sensor-fusion
+              architecture. Incubated at ITI Limited via Vinyas Startup Hub.
+            </p>
+          </div>
+        </li>
+
+        <li class="tl-item" data-reveal>
+          <div class="tl-date">&mdash;</div><!-- TODO: add dates -->
+          <div class="tl-body">
+            <h3 class="tl-role">Co-founder</h3>
+            <p class="tl-org">Vibe</p>
+            <p class="tl-desc">Agentic commerce.</p>
+          </div>
+        </li>
+
+        <li class="tl-item" data-reveal>
+          <div class="tl-date">&mdash;</div><!-- TODO: add dates -->
+          <div class="tl-body">
+            <h3 class="tl-role">Product Lead</h3>
+            <p class="tl-org">Livingthings AI</p>
+            <p class="tl-desc">
+              Led product for connected hardware — mechanical design, enclosure
+              engineering, PCB integration and prototyping.
+            </p>
+          </div>
+        </li>
+
+        <li class="tl-item" data-reveal>
+          <div class="tl-date">&mdash;</div><!-- TODO: add dates -->
+          <div class="tl-body">
+            <h3 class="tl-role">APM &amp; Reliability Engineer</h3>
+            <p class="tl-org">Paar Autonomy</p>
+            <p class="tl-desc">Autonomous systems reliability and product management.</p>
+          </div>
+        </li>
+
+        <li class="tl-item" data-reveal>
+          <div class="tl-date">&mdash;</div><!-- TODO: add dates -->
+          <div class="tl-body">
+            <h3 class="tl-role">AI Supply Chain</h3>
+            <p class="tl-org">Zomato</p>
+            <p class="tl-desc">Applied AI across supply-chain operations.</p>
+          </div>
+        </li>
+
+        <li class="tl-item" data-reveal>
+          <div class="tl-date">2020 — 2024</div>
+          <div class="tl-body">
+            <h3 class="tl-role">BTech, Mechanical Engineering</h3>
+            <p class="tl-org">Indian Institute of Technology Bombay</p>
+            <p class="tl-desc">
+              Femtosecond-laser optics research and terrain-adapting hexapod
+              robots. Team Rakshak and Inter-IIT Tech Meet —
+              <a href="/team-leadership-details.html">VP Marketing and Head of Design</a>.
+            </p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================
+       SKILLS  ·  safe to edit — just add or remove <li> tags
+       ======================================================================== -->
+  <section class="section section--panel" id="skills">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="label">04 — Capabilities</p>
+        <h2>Hardware and software, end to end.</h2>
+      </div>
+
+      <div class="skills-grid" data-reveal>
+        <div class="skill-group">
+          <h3>Mechanical &amp; hardware</h3>
+          <ul class="tag-row">
+            <li class="tag">SolidWorks</li>
+            <li class="tag">Fusion 360</li>
+            <li class="tag">ANSYS</li>
+            <li class="tag">KiCAD</li>
+            <li class="tag">Rapid prototyping</li>
+          </ul>
         </div>
-    </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- Typing Animation ---
-            const typedTextSpan = document.querySelector("#typed-text");
-            const textArray = ["hardware prototypes.", "digital products.", "creative solutions."];
-            const typingDelay = 100, erasingDelay = 50, newTextDelay = 2000;
-            let textArrayIndex = 0, charIndex = 0;
-            function type() { if (charIndex < textArray[textArrayIndex].length) { typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex++); setTimeout(type, typingDelay); } else { setTimeout(erase, newTextDelay); } }
-            function erase() { if (charIndex > 0) { typedTextSpan.textContent = textArray[textArrayIndex].substring(0, --charIndex); setTimeout(erase, erasingDelay); } else { textArrayIndex = (textArrayIndex + 1) % textArray.length; setTimeout(type, typingDelay + 1100); } }
-            if (textArray.length) setTimeout(type, newTextDelay + 250);
 
-            // --- Scroll Reveal ---
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        <div class="skill-group">
+          <h3>Software</h3>
+          <ul class="tag-row">
+            <li class="tag">Python</li>
+            <li class="tag">TypeScript</li>
+            <li class="tag">React</li>
+            <li class="tag">Vite</li>
+          </ul>
+        </div>
 
-            // --- Mouse Parallax ---
-            const parallaxContainer = document.getElementById('parallax-container');
-            window.addEventListener('mousemove', (e) => {
-                const { clientX, clientY } = e;
-                const x = (clientX / window.innerWidth - 0.5) * 2; // -1 to 1
-                const y = (clientY / window.innerHeight - 0.5) * 2; // -1 to 1
-                
-                if(parallaxContainer) {
-                    for (const layer of parallaxContainer.children) {
-                        const depth = layer.getAttribute('data-depth');
-                        layer.style.transform = `translate(${x * depth * 40}px, ${y * depth * 40}px)`;
-                    }
-                }
-            });
+        <div class="skill-group">
+          <h3>Domains</h3>
+          <ul class="tag-row">
+            <li class="tag">Defence technology</li>
+            <li class="tag">Autonomous systems</li>
+            <li class="tag">Computer vision</li>
+            <li class="tag">EO/IR &amp; thermal</li>
+            <li class="tag">AR optics</li>
+            <li class="tag">IoT</li>
+          </ul>
+        </div>
 
-            // --- Dark/Light Mode Toggle ---
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-            // Function to apply theme based on class
-            const applyTheme = () => {
-                if (html.classList.contains('dark')) {
-                    // Dark mode is active
-                } else {
-                    // Light mode is active
-                }
-            };
-            // Check for saved theme in localStorage and apply it
-            if (localStorage.getItem('theme') === 'light') {
-                html.classList.remove('dark');
-            } else {
-                 html.classList.add('dark');
-            }
-            applyTheme(); // Apply theme on initial load
+        <div class="skill-group">
+          <h3>Design</h3>
+          <ul class="tag-row">
+            <li class="tag">Figma</li>
+            <li class="tag">Blender</li>
+            <li class="tag">DaVinci Resolve</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            themeToggle.addEventListener('click', () => {
-                html.classList.toggle('dark');
-                // Save theme preference to localStorage
-                localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-                applyTheme();
-            });
 
-            // --- Live Clock ---
-            const clockElement = document.getElementById('clock');
-            function updateClock() {
-                const now = new Date();
-                const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute:'2-digit' });
-                if(clockElement) clockElement.textContent = `Local Time: ${timeString}`;
-            }
-            updateClock();
-            setInterval(updateClock, 1000);
+  <!-- ========================================================================
+       SELECTED WORK  ·  safe to edit
+       ======================================================================== -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="label">05 — Beyond the work</p>
+        <h2>3D, design and illustration.</h2>
+        <p class="lede">
+          Before hardware there was rendering. I still design, model and
+          illustrate — it's where a lot of the product instinct came from.
+        </p>
+      </div>
 
-            // --- Scroll-driven Marquee ---
-            const marqueeContent = document.getElementById('marquee-content');
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                if(marqueeContent) {
-                   marqueeContent.style.transform = `translateX(-${scrollY * 0.2}px)`;
-                }
-            });
-        });
-    </script>
+      <div class="work-grid" data-reveal-stagger>
+
+        <a class="work-card" href="/creator-details.html">
+          <img src="/assets/img/audi-r8-blender-render.webp"
+               alt="Blender render of a silver Audi R8 on a misty road"
+               width="1600" height="900" loading="lazy" decoding="async">
+          <span class="work-caption">Audi R8<span>Blender · 3D render</span></span>
+        </a>
+
+        <a class="work-card" href="/creator-details.html">
+          <img src="/assets/img/glass-pitcher-render.webp"
+               alt="Blender render of a glass pitcher and dispenser"
+               width="1600" height="1600" loading="lazy" decoding="async">
+          <span class="work-caption">Glass pitcher<span>Blender · product concept</span></span>
+        </a>
+
+        <a class="work-card" href="/creator-details.html">
+          <img src="/assets/img/dropper-bottle-render.webp"
+               alt="Product render of a cosmetic dropper bottle"
+               width="1600" height="1600" loading="lazy" decoding="async">
+          <span class="work-caption">Dropper bottle<span>Blender · product render</span></span>
+        </a>
+
+        <a class="work-card" href="/portfolio-details.html">
+          <img src="/assets/img/anime-portrait-digital.webp"
+               alt="Digital painted portrait in an anime style"
+               width="1600" height="1200" loading="lazy" decoding="async">
+          <span class="work-caption">Illustration<span>Digital painting</span></span>
+        </a>
+
+      </div>
+
+      <div class="cta-row" style="margin-top: var(--space-8)" data-reveal>
+        <a class="btn btn-ghost" href="/creator-details.html">3D &amp; design work</a>
+        <a class="btn btn-ghost" href="/portfolio-details.html">Illustration gallery</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================
+       FAQ  ·  safe to edit
+       IMPORTANT: if you change a question or answer here, change the matching
+       one in the structured data block at the top of this file too. They are
+       meant to say the same thing.
+       ======================================================================== -->
+  <section class="section section--panel" id="faq">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="label">06 — Questions</p>
+        <h2>Frequently asked.</h2>
+      </div>
+
+      <div class="faq" data-reveal>
+
+        <div class="faq-item">
+          <h3 class="faq-q">Who is Shubham Dutta?</h3>
+          <p class="faq-a">
+            Shubham Dutta is the founder and CEO of Bortex, a defence-technology
+            company based in Bengaluru, India. He holds a BTech in Mechanical
+            Engineering from IIT Bombay and previously worked at Vibe,
+            Livingthings AI, Paar Autonomy and Zomato.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">What is Bortex?</h3>
+          <p class="faq-a">
+            Bortex is an Indian defence-technology company founded in June 2026
+            and headquartered in Bengaluru. It builds AI-powered border
+            observability and tactical awareness systems for the Indian Armed
+            Forces, built on its X-Matrix sensor-fusion architecture.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">What products does Bortex build?</h3>
+          <p class="faq-a">
+            Bortex builds four systems: Vanguard, soldier-mounted
+            augmented-reality glasses; Perimeter, autonomous border-surveillance
+            towers; Trident, an AI counter-drone platform; and Vigil, a
+            multi-domain air, sea and ground robotics mesh.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">Where is Bortex based?</h3>
+          <p class="faq-a">
+            Bortex is headquartered in Bengaluru, Karnataka, India. In July 2026
+            it was incubated at ITI Limited, a Government of India enterprise,
+            through the Vinyas Startup Hub programme.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">What is the X-Matrix architecture?</h3>
+          <p class="faq-a">
+            X-Matrix is the sensor-fusion backbone built by Bortex. It ingests
+            data from cameras, radar, acoustic sensors and unmanned assets in
+            real time and fuses it into one operating picture across air, land
+            and sea.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">What did Shubham Dutta do before founding Bortex?</h3>
+          <p class="faq-a">
+            Before Bortex, Shubham Dutta co-founded Vibe, an agentic-commerce
+            startup, led product at Livingthings AI, worked as an APM and
+            reliability engineer at Paar Autonomy, worked on AI supply chain at
+            Zomato, and researched femtosecond-laser optics at IIT Bombay.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================
+       CONTACT  ·  safe to edit
+       ⚠ THE EMAIL BELOW IS A PLACEHOLDER. It currently uses the Bortex
+       address that is already public on bortex.co.in. Replace both the
+       href="mailto:..." and the visible text with your personal address.
+       ======================================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="label">07 — Contact</p>
+        <h2>Get in touch.</h2>
+        <p class="lede">
+          For anything about Bortex, defence technology, or working together.
+        </p>
+      </div>
+
+      <div class="contact-grid" data-reveal>
+        <ul class="contact-list">
+          <li>
+            <a href="mailto:shubham@bortex.co.in">
+              <span>shubham@bortex.co.in</span>
+              <span class="contact-kind">Email</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/shubham-designer/" target="_blank" rel="noopener">
+              <span>linkedin.com/in/shubham-designer</span>
+              <span class="contact-kind">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Shinobi-hub" target="_blank" rel="noopener">
+              <span>github.com/Shinobi-hub</span>
+              <span class="contact-kind">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://bortex.co.in" target="_blank" rel="noopener">
+              <span>bortex.co.in</span>
+              <span class="contact-kind">Company</span>
+            </a>
+          </li>
+        </ul>
+
+        <div>
+          <p class="label" style="margin-bottom: var(--space-4)">Elsewhere</p>
+          <div class="social-row">
+            <a href="https://x.com/BORTEX_DEFENCE" target="_blank" rel="noopener" aria-label="Bortex on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@shinobi6066" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 3.993z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/shub.hamxd/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.688.073-4.948s-.014-3.667-.072-4.947C23.727 2.695 21.309.273 16.947.073 15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.pixiv.net/en/users/63648103" target="_blank" rel="noopener" aria-label="Pixiv">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.935 0A4.924 4.924 0 000 4.935v14.13A4.924 4.924 0 004.935 24h14.13A4.924 4.924 0 0024 19.065V4.935A4.924 4.924 0 0019.065 0zm7.81 4.547c2.183 0 4.049.63 5.385 1.673 1.34 1.048 2.114 2.52 2.114 4.11 0 2.958-2.083 4.89-4.485 5.62-1.008.307-2.1.44-3.115.44-1.264 0-2.36-.243-3.216-.658v3.997c.5.146 1.012.293 1.012.293l-.006.68H5.44l-.008-.68s.616-.147 1.115-.293V7.657c-.977.756-1.545 1.545-1.545 1.545l-.63-.717s1.708-2.73 5.39-3.66a9.96 9.96 0 012.982-.278zm-.293 1.348c-1.023 0-1.97.222-2.795.62v8.29c.79.44 1.79.7 2.9.7 2.65 0 4.79-1.79 4.79-4.86 0-2.87-2.04-4.75-4.895-4.75z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span data-year>2026</span> Shubham Dutta</p>
+    <p class="clock" id="clock"></p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
