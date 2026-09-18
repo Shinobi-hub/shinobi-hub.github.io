@@ -1,0 +1,1051 @@
+/* ==========================================================================
+   Shubham Dutta — site.css
+   --------------------------------------------------------------------------
+   This one file styles the whole site. It replaces the Tailwind CDN.
+
+   HOW TO EDIT THIS FILE
+   - Section 1 (TOKENS) holds every colour, font size and spacing value.
+     Change a value there and it updates everywhere on the site at once.
+   - You almost never need to touch anything below Section 1.
+   - Each section is labelled with a ==== banner so you can search for it.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TOKENS — the design system. Change values here, not further down.
+   ========================================================================== */
+
+:root {
+  /* --- Brand accent -------------------------------------------------------
+     Electric blue. Deliberately different from Bortex orange (#FF5500):
+     this is the personal site, Bortex is referenced as work, not imitated.
+     To re-skin the entire site, change these five values.                   */
+  --accent:        #4D8DFF;
+  --accent-bright: #8FBAFF;
+  --accent-dim:    #2C63C9;
+  --accent-glow:   rgb(77 141 255 / 16%);
+  --accent-on:     #06101F;   /* text colour placed ON an accent background */
+
+  /* --- Surfaces (dark theme is the default) ----------------------------- */
+  --bg:         #0B0E12;      /* page background            */
+  --bg-elev:    #12161C;      /* cards, panels              */
+  --bg-raised:  #191F28;      /* hovered cards, inputs      */
+  --bg-overlay: rgb(11 14 18 / 72%);  /* sticky nav backdrop */
+
+  /* --- Text -------------------------------------------------------------- */
+  --fg:        #E9EEF4;       /* headings, primary text     */
+  --fg-muted:  #A3B1BF;       /* body copy                  */
+  --fg-faint:  #6E7C8B;       /* captions, metadata         */
+
+  /* --- Lines ------------------------------------------------------------- */
+  --border:        rgb(255 255 255 / 8%);
+  --border-strong: rgb(255 255 255 / 16%);
+
+  /* --- Status colours ---------------------------------------------------- */
+  --ok:   #34D399;
+  --warn: #FBBF24;
+
+  /* --- Typography --------------------------------------------------------
+     One downloaded family (Inter) keeps the site fast. Small technical
+     labels use the system monospace font, which costs nothing to load.
+     Want a different display font? Change --font-display only.             */
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-body);
+  --font-mono:    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Fluid type scale. clamp(min, preferred, max) grows with the viewport
+     so text is readable on a phone and impressive on a monitor.            */
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-lg:   clamp(1.0625rem, 0.4vw + 1rem,   1.1875rem);
+  --fs-xl:   clamp(1.25rem,  0.8vw + 1.05rem, 1.5rem);
+  --fs-2xl:  clamp(1.75rem,  1.6vw + 1.3rem,  2.5rem);
+  --fs-3xl:  clamp(2.25rem,  3vw + 1.4rem,    3.75rem);
+  --fs-4xl:  clamp(2.75rem,  6vw + 1rem,      6rem);
+
+  --lh-tight: 1.05;
+  --lh-snug:  1.25;
+  --lh-base:  1.65;
+
+  /* --- Spacing ----------------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Shape ------------------------------------------------------------- */
+  --radius-sm: 6px;
+  --radius:    12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* --- Motion -------------------------------------------------------------
+     One easing curve used everywhere keeps the site feeling coherent.      */
+  --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  --d-fast:    150ms;
+  --d-base:    250ms;
+  --d-slow:    450ms;
+  --d-reveal:  800ms;
+
+  /* --- Layout ------------------------------------------------------------ */
+  --container: 72rem;      /* max width of page content */
+  --measure:   38rem;      /* max width of a paragraph, for readability */
+  --gutter:    clamp(1.25rem, 4vw, 3rem);
+  --nav-h:     4rem;
+}
+
+/* --- Light theme ---------------------------------------------------------
+   Applied when <html> does NOT have class="dark". Only the values that
+   actually change are re-declared.                                         */
+html:not(.dark) {
+  --accent:        #1B5FD9;
+  --accent-bright: #1247A8;
+  --accent-dim:    #6FA3F5;
+  --accent-glow:   rgb(27 95 217 / 10%);
+  --accent-on:     #FFFFFF;
+
+  --bg:         #F6F8FA;
+  --bg-elev:    #FFFFFF;
+  --bg-raised:  #FFFFFF;
+  --bg-overlay: rgb(246 248 250 / 80%);
+
+  --fg:       #0B0E12;
+  --fg-muted: #4A5866;
+  --fg-faint: #6B7885;
+
+  --border:        rgb(11 14 18 / 10%);
+  --border-strong: rgb(11 14 18 / 20%);
+
+  --ok:   #047857;
+  --warn: #B45309;
+}
+
+
+/* ==========================================================================
+   2. RESET & BASE
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Stops anchor links hiding content behind the sticky nav */
+  scroll-padding-top: calc(var(--nav-h) + var(--space-4));
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img, video, svg { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+button, input, textarea { font: inherit; color: inherit; }
+
+ul, ol { list-style: none; padding: 0; }
+
+/* Visible focus for keyboard users only — essential for accessibility.
+   Uses :focus-visible so mouse clicks don't show a ring.                   */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Screen-reader-only text: invisible on screen, read aloud by assistive tech */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* "Skip to content" link — appears when a keyboard user presses Tab first */
+.skip-link {
+  position: absolute;
+  top: var(--space-2); left: var(--space-2);
+  z-index: 200;
+  padding: var(--space-3) var(--space-4);
+  background: var(--accent);
+  color: var(--accent-on);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transform: translateY(-150%);
+  transition: transform var(--d-base) var(--ease);
+}
+.skip-link:focus { transform: translateY(0); }
+
+
+/* ==========================================================================
+   3. TYPOGRAPHY
+   ========================================================================== */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: var(--lh-tight);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  text-wrap: balance;      /* avoids a single orphan word on the last line */
+}
+
+h1 { font-size: var(--fs-4xl); letter-spacing: -0.04em; }
+h2 { font-size: var(--fs-3xl); letter-spacing: -0.03em; }
+h3 { font-size: var(--fs-xl);  line-height: var(--lh-snug); }
+h4 { font-size: var(--fs-lg);  line-height: var(--lh-snug); }
+
+p { text-wrap: pretty; }
+
+.lede {
+  font-size: var(--fs-xl);
+  line-height: 1.45;
+  color: var(--fg-muted);
+  letter-spacing: -0.012em;
+}
+
+.prose { color: var(--fg-muted); font-size: var(--fs-lg); }
+.prose > * + * { margin-top: var(--space-6); }
+.prose strong { color: var(--fg); font-weight: 600; }
+.prose a {
+  color: var(--accent-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgb(from var(--accent) r g b / 45%);
+  transition: text-decoration-color var(--d-fast) var(--ease);
+}
+.prose a:hover { text-decoration-color: currentColor; }
+.prose ul { display: grid; gap: var(--space-3); }
+.prose ul li {
+  position: relative;
+  padding-left: var(--space-6);
+}
+.prose ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.7em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Small uppercase monospace label — used above section headings */
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  font-weight: 500;
+}
+.label--accent { color: var(--accent); }
+
+.measure { max-width: var(--measure); }
+
+
+/* ==========================================================================
+   4. LAYOUT
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: clamp(var(--space-16), 10vw, var(--space-32)); }
+.section--tight { padding-block: clamp(var(--space-12), 7vw, var(--space-24)); }
+
+/* Alternating panel background to separate sections without hard lines */
+.section--panel {
+  background: var(--bg-elev);
+  border-block: 1px solid var(--border);
+}
+
+.section-head {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+  max-width: 46rem;
+}
+
+.divider { height: 1px; background: var(--border); border: 0; }
+
+
+/* ==========================================================================
+   5. NAVIGATION
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 600;
+  font-size: var(--fs-base);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.nav-brand img {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.nav-link {
+  position: relative;
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  transition: color var(--d-fast) var(--ease);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--d-base) var(--ease);
+}
+.nav-link:hover { color: var(--fg); }
+.nav-link:hover::after { transform: scaleX(1); }
+.nav-link[aria-current="true"] { color: var(--fg); }
+.nav-link[aria-current="true"]::after { transform: scaleX(1); }
+
+/* Reading-progress bar pinned to the bottom edge of the header */
+.scroll-progress {
+  position: absolute;
+  left: 0; bottom: -1px;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  will-change: transform;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  color: var(--fg-muted);
+  transition: color var(--d-fast) var(--ease),
+              border-color var(--d-fast) var(--ease),
+              background var(--d-fast) var(--ease);
+}
+.theme-toggle:hover {
+  color: var(--fg);
+  border-color: var(--border-strong);
+  background: var(--bg-raised);
+}
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .icon-sun  { display: none; }
+html:not(.dark) .theme-toggle .icon-sun  { display: block; }
+html:not(.dark) .theme-toggle .icon-moon { display: none; }
+
+/* Mobile menu button, hidden on desktop */
+.nav-toggle { display: none; }
+
+
+/* ==========================================================================
+   6. BUTTONS
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform var(--d-base) var(--ease),
+              background var(--d-base) var(--ease),
+              border-color var(--d-base) var(--ease),
+              box-shadow var(--d-base) var(--ease);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-on);
+  box-shadow: 0 0 0 0 var(--accent-glow);
+}
+.btn-primary:hover {
+  background: var(--accent-bright);
+  box-shadow: 0 8px 30px -6px var(--accent-glow);
+}
+
+.btn-ghost {
+  border-color: var(--border-strong);
+  color: var(--fg);
+  background: transparent;
+}
+.btn-ghost:hover {
+  background: var(--bg-raised);
+  border-color: var(--accent);
+}
+
+.btn:active { transform: translateY(1px); }
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Small arrow that nudges on hover — used on "see more" style links */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--accent-bright);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+}
+.arrow-link svg {
+  width: 14px; height: 14px;
+  transition: transform var(--d-base) var(--ease);
+}
+.arrow-link:hover svg { transform: translate(2px, -2px); }
+
+
+/* ==========================================================================
+   7. HERO
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  min-height: min(92svh, 56rem);
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-24) var(--space-16);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* The looping Blender render. It sits behind everything, heavily graded
+   so it reads as atmosphere rather than as a picture of a house.          */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero-media img,
+.hero-media video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  /* The grade: desaturated, darkened, cooled to match the accent.         */
+  filter: grayscale(72%) brightness(42%) contrast(112%);
+}
+/* Video starts invisible and is faded in by JS once it can actually play,
+   so a half-loaded video never flashes on screen.                         */
+.hero-media video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease);
+}
+.hero-media video.is-ready { opacity: 1; }
+
+/* Two overlays: a colour wash for mood, and a vertical fade so the text
+   at the bottom always has enough contrast to stay readable.              */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(120% 80% at 15% 20%, var(--accent-glow) 0%, transparent 60%),
+    linear-gradient(180deg,
+      rgb(from var(--bg) r g b / 55%) 0%,
+      rgb(from var(--bg) r g b / 78%) 45%,
+      var(--bg) 100%);
+}
+
+.hero-inner {
+  display: grid;
+  gap: var(--space-6);
+  max-width: 54rem;
+}
+
+.hero-title { margin-block: var(--space-2) 0; }
+
+.hero-lede {
+  font-size: var(--fs-xl);
+  line-height: 1.45;
+  color: var(--fg-muted);
+  max-width: 34rem;
+}
+.hero-lede strong { color: var(--fg); font-weight: 600; }
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-2);
+}
+.hero-meta li {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.hero-meta li + li::before {
+  content: "";
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.hero-cta { margin-top: var(--space-4); }
+
+
+/* ==========================================================================
+   8. CARDS & PANELS
+   ========================================================================== */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--d-base) var(--ease),
+              background var(--d-base) var(--ease),
+              transform var(--d-base) var(--ease);
+}
+.card:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-raised);
+  transform: translateY(-3px);
+}
+/* Makes an entire card clickable when it contains one main link */
+.card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+
+/* ==========================================================================
+   9. BORTEX SECTION — stats and product cards
+   ========================================================================== */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--space-8);
+  padding-block: var(--space-8);
+  border-block: 1px solid var(--border);
+  margin-block: var(--space-12);
+}
+.stat { display: grid; gap: var(--space-2); }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--fg);
+  /* Reserves height so the counter animation cannot shift the layout */
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: var(--fs-sm);
+  color: var(--fg-faint);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-4);
+}
+
+.product-card { gap: var(--space-4); }
+.product-card .product-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.product-name {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.product-tagline {
+  color: var(--fg-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+.product-specs {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+.spec-row dt { color: var(--fg-faint); }
+.spec-row dd { color: var(--fg); text-align: right; }
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  white-space: nowrap;
+}
+.status-pill::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--warn);
+}
+.status-pill--active::before { background: var(--ok); }
+
+
+/* ==========================================================================
+   10. TIMELINE (experience)
+   ========================================================================== */
+
+.timeline {
+  display: grid;
+  gap: 0;
+  position: relative;
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: var(--space-8);
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--border);
+  transition: background var(--d-base) var(--ease);
+}
+.tl-item:last-child { border-bottom: 1px solid var(--border); }
+
+.tl-date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  color: var(--fg-faint);
+  text-transform: uppercase;
+  padding-top: 0.35em;
+}
+
+.tl-body { display: grid; gap: var(--space-2); }
+
+.tl-role {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+}
+.tl-org {
+  font-size: var(--fs-sm);
+  color: var(--accent-bright);
+  font-weight: 500;
+}
+.tl-desc { color: var(--fg-muted); font-size: var(--fs-base); }
+
+/* Highlighted row for the current role */
+.tl-item--current .tl-role::after {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  margin-left: var(--space-3);
+  border-radius: 50%;
+  background: var(--ok);
+  vertical-align: middle;
+}
+
+
+/* ==========================================================================
+   11. SKILLS
+   ========================================================================== */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-8);
+}
+.skill-group { display: grid; gap: var(--space-4); align-content: start; }
+.skill-group h3 { font-size: var(--fs-base); font-weight: 600; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tag {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  background: var(--bg-elev);
+  transition: border-color var(--d-fast) var(--ease),
+              color var(--d-fast) var(--ease);
+}
+.tag:hover { border-color: var(--accent); color: var(--fg); }
+
+
+/* ==========================================================================
+   12. WORK GRID (creative / selected work)
+   ========================================================================== */
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: var(--space-4);
+}
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  aspect-ratio: 4 / 3;
+  transition: border-color var(--d-base) var(--ease);
+}
+.work-card img,
+.work-card video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform var(--d-slow) var(--ease),
+              filter var(--d-slow) var(--ease);
+}
+.work-card:hover { border-color: var(--border-strong); }
+.work-card:hover img,
+.work-card:hover video { transform: scale(1.04); }
+
+.work-caption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: var(--space-6) var(--space-4) var(--space-4);
+  background: linear-gradient(180deg, transparent, rgb(0 0 0 / 78%));
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+.work-caption span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+
+/* ==========================================================================
+   13. FAQ
+   ========================================================================== */
+
+.faq { display: grid; gap: 0; }
+.faq-item {
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-q {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-3);
+  color: var(--fg);
+}
+.faq-a { color: var(--fg-muted); max-width: var(--measure); }
+
+
+/* ==========================================================================
+   14. CONTACT & FOOTER
+   ========================================================================== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.contact-list { display: grid; gap: var(--space-3); }
+.contact-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg-muted);
+  transition: color var(--d-fast) var(--ease), padding-left var(--d-base) var(--ease);
+}
+.contact-list a:hover { color: var(--fg); padding-left: var(--space-2); }
+.contact-list .contact-kind {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-faint);
+}
+
+.social-row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.social-row a {
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--fg-faint);
+  transition: color var(--d-fast) var(--ease),
+              border-color var(--d-fast) var(--ease),
+              transform var(--d-base) var(--ease);
+}
+.social-row a:hover {
+  color: var(--accent-bright);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.social-row svg { width: 17px; height: 17px; }
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-8);
+  color: var(--fg-faint);
+  font-size: var(--fs-sm);
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: space-between;
+  align-items: center;
+}
+.clock { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.06em; }
+
+
+/* ==========================================================================
+   15. BREADCRUMBS (detail pages)
+   ========================================================================== */
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--fg-faint);
+  margin-bottom: var(--space-6);
+}
+.breadcrumb a { color: var(--fg-muted); }
+.breadcrumb a:hover { color: var(--accent-bright); }
+.breadcrumb li { display: flex; align-items: center; gap: var(--space-2); }
+.breadcrumb li + li::before { content: "/"; color: var(--border-strong); }
+
+.page-header { padding-block: var(--space-16) var(--space-8); }
+.page-header h1 { font-size: var(--fs-3xl); }
+
+
+/* ==========================================================================
+   16. MOTION — scroll reveals
+   --------------------------------------------------------------------------
+   Elements marked data-reveal start slightly down and transparent, then
+   animate in when they scroll into view. The .is-visible class is added by
+   assets/js/site.js. Only transform and opacity are animated, which the
+   browser can do on the GPU — that is what keeps it at 60fps.
+   ========================================================================== */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity var(--d-reveal) var(--ease),
+              transform var(--d-reveal) var(--ease);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+/* Stagger children one after another */
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity var(--d-reveal) var(--ease),
+              transform var(--d-reveal) var(--ease);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+[data-reveal-stagger].is-visible > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+
+/* ==========================================================================
+   17. REDUCED MOTION
+   --------------------------------------------------------------------------
+   If the visitor has asked their operating system to reduce motion, every
+   animation is switched off and all revealed content is shown immediately.
+   The hero video is hidden too and the poster image is shown instead.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal],
+  [data-reveal-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-media video { display: none; }
+}
+
+
+/* ==========================================================================
+   18. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 48rem) {
+  .tl-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .tl-date { padding-top: 0; }
+
+  .hero { min-height: auto; padding-block: var(--space-16); }
+
+  /* Mobile navigation: links collapse into a panel under the header */
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+    width: 34px; height: 34px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    cursor: pointer;
+    color: var(--fg-muted);
+  }
+  .nav-toggle svg { width: 18px; height: 18px; }
+
+  .nav-links {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-2) var(--gutter) var(--space-6);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    /* Hidden by default; toggled open by JS */
+    display: none;
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-links .nav-link {
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--border);
+    font-size: var(--fs-lg);
+  }
+  .nav-links .nav-link::after { display: none; }
+  /* Theme toggle sits inline in the header on mobile, not in the panel */
+  .nav-utils { display: flex; align-items: center; gap: var(--space-2); }
+}
+
+@media (min-width: 48.0625rem) {
+  .nav-toggle { display: none; }
+}
+
+/* Very small phones */
+@media (max-width: 22rem) {
+  :root { --gutter: 1rem; }
+}
+
+
+/* ==========================================================================
+   19. PRINT — so the page prints / saves as a clean PDF résumé
+   ========================================================================== */
+
+@media print {
+  .site-header, .hero-media, .hero-scrim, .social-row, .theme-toggle { display: none !important; }
+  body { background: #fff; color: #000; }
+  .section { padding-block: 1.5rem; }
+  a::after { content: " (" attr(href) ")"; font-size: 0.75em; color: #555; }
+}
